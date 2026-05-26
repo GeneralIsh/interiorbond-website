@@ -372,7 +372,7 @@
     /* ─── VENTURES ─── */
     .ventures {
       position: relative; z-index: 2;
-      padding: 10rem 0;
+      padding: 10rem 0 8rem;
       border-top: 1px solid var(--dim2);
     }
 
@@ -390,60 +390,155 @@
       max-width: 280px; text-align: right; line-height: 1.7;
     }
 
-    /* Rotation */
-    .ventures-slider { position: relative; overflow: hidden; width: 100%; }
-    .ventures-track {
+    /* ─── 3D CAROUSEL ─── */
+    .carousel-stage {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      perspective: 1400px;
+      perspective-origin: 50% 45%;
       display: flex;
-      transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
-      will-change: transform;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
     }
 
-    .venture-slide {
-      min-width: 100%; width: 100%; flex-shrink: 0;
-      display: grid; grid-template-columns: 1fr 1.4fr;
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .vc-card {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 520px;
+      height: 480px;
+      margin-top: -240px;
+      margin-left: -260px;
       border: 1px solid var(--dim2);
-      position: relative; overflow: hidden;
-      min-height: 420px;
-      transition: border-color 0.4s;
-    }
-    .venture-slide:hover { border-color: rgba(184,150,62,0.3); }
-
-    .vs-accent {
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    }
-    .vs-accent.gold   { background: linear-gradient(90deg, var(--gold), var(--gold-lt)); }
-    .vs-accent.teal   { background: linear-gradient(90deg, var(--teal), #2ABFBF); }
-    .vs-accent.ember  { background: linear-gradient(90deg, var(--ember), #E07840); }
-    .vs-accent.silver { background: linear-gradient(90deg, #8A8A8A, #C0C0C0); }
-
-    .vs-left {
-      padding: 4rem 3.5rem;
-      border-right: 1px solid var(--dim2);
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .vs-right {
-      padding: 4rem 3.5rem;
-      display: flex; flex-direction: column; justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.75s ease,
+                  box-shadow 0.4s ease;
+      will-change: transform;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      background: rgba(6,13,31,0.92);
     }
 
-    .vs-num {
+    /* Active card — front and center */
+    .vc-card.pos-0 {
+      transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+      opacity: 1;
+      z-index: 10;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(184,150,62,0.08);
+      pointer-events: auto;
+    }
+    /* Adjacent left */
+    .vc-card.pos-n1 {
+      transform: translateX(-440px) translateZ(-220px) rotateY(42deg) scale(0.88);
+      opacity: 0.65;
+      z-index: 5;
+      pointer-events: auto;
+    }
+    /* Adjacent right */
+    .vc-card.pos-1 {
+      transform: translateX(440px) translateZ(-220px) rotateY(-42deg) scale(0.88);
+      opacity: 0.65;
+      z-index: 5;
+      pointer-events: auto;
+    }
+    /* Far left */
+    .vc-card.pos-n2 {
+      transform: translateX(-740px) translateZ(-480px) rotateY(62deg) scale(0.72);
+      opacity: 0.35;
+      z-index: 2;
+      pointer-events: auto;
+    }
+    /* Far right */
+    .vc-card.pos-2 {
+      transform: translateX(740px) translateZ(-480px) rotateY(-62deg) scale(0.72);
+      opacity: 0.35;
+      z-index: 2;
+      pointer-events: auto;
+    }
+    /* Hidden / off-stage */
+    .vc-card.pos-hidden {
+      transform: translateX(0) translateZ(-800px) scale(0.5);
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .vc-card:hover.pos-n1,
+    .vc-card:hover.pos-1 { opacity: 0.85; }
+    .vc-card:hover.pos-n2,
+    .vc-card:hover.pos-2 { opacity: 0.55; }
+
+    /* Card inner layout */
+    .vc-hero {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: opacity 0.6s;
+    }
+    .vc-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(6,13,31,0.3) 0%,
+        rgba(6,13,31,0.55) 40%,
+        rgba(6,13,31,0.92) 100%);
+    }
+
+    .vc-accent {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
+    }
+
+    .vc-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 2.8rem;
+      z-index: 3;
+    }
+
+    .vc-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gold); opacity: 0.4;
-      margin-bottom: 2rem;
+      font-size: 0.62rem; letter-spacing: 0.35em; color: var(--gold); opacity: 0.5;
+      margin-bottom: 0.6rem;
     }
-    .vs-name {
+    .vc-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      line-height: 0.95; letter-spacing: 0.03em; color: var(--bone);
-      margin-bottom: 0.5rem;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      line-height: 0.92; letter-spacing: 0.03em; color: var(--bone);
+      margin-bottom: 0.4rem;
     }
-    .vs-type {
-      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 2rem;
+    .vc-type {
+      font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.4rem;
     }
-    .vs-status {
+    .vc-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem; line-height: 1.65; color: rgba(237,233,224,0.6);
+      margin-bottom: 1.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .vc-footer {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .vc-status {
       display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .vc-url {
+      font-size: 0.55rem; letter-spacing: 0.15em; color: rgba(237,233,224,0.25);
+      text-transform: lowercase;
     }
     .vs-dot {
       width: 6px; height: 6px; border-radius: 50%;
@@ -453,52 +548,48 @@
     .vs-dot.soon   { background: var(--ember); box-shadow: 0 0 6px var(--ember); animation: pdot 2s infinite; }
     @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
 
-    .vs-url {
-      font-size: 0.6rem; letter-spacing: 0.15em; color: var(--dim2); text-transform: lowercase;
-      margin-top: 0.75rem;
+    .vc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.4rem; }
+    .vc-tag {
+      font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase;
+      border: 1px solid rgba(237,233,224,0.12); padding: 0.2rem 0.5rem;
+      color: rgba(237,233,224,0.3);
     }
 
-    .vs-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; line-height: 1.8; color: var(--dim);
-      margin-bottom: 2rem;
-    }
-    .vs-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .vs-tag {
-      font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
-      border: 1px solid var(--dim2); padding: 0.25rem 0.6rem; color: var(--dim2);
-      transition: border-color 0.3s, color 0.3s;
-    }
-    .venture-slide:hover .vs-tag { border-color: rgba(184,150,62,0.3); color: var(--dim); }
+    /* Active card shows more content */
+    .vc-card.pos-0 .vc-desc { -webkit-line-clamp: 4; }
+    .vc-card.pos-0 .vc-hero { opacity: 1; }
+    .vc-card:not(.pos-0) .vc-hero { opacity: 0.7; }
+    .vc-card:not(.pos-0) .vc-desc { display: none; }
+    .vc-card:not(.pos-0) .vc-tags { display: none; }
 
-    /* Slider controls */
-    .slider-controls {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 2.5rem;
+    /* Carousel controls */
+    .carousel-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2rem;
+      margin-top: 3.5rem;
     }
-    .slider-dots { display: flex; gap: 0.6rem; align-items: center; }
-    .s-dot {
+    .carousel-dots { display: flex; gap: 0.6rem; align-items: center; }
+    .c-dot {
       width: 6px; height: 6px; border-radius: 50%;
       background: var(--dim2); cursor: pointer;
       transition: background 0.3s, transform 0.3s;
     }
-    .s-dot.active { background: var(--gold); transform: scale(1.5); }
-
-    .slider-arrows { display: flex; gap: 1rem; }
-    .s-arrow {
+    .c-dot.active { background: var(--gold); transform: scale(1.5); }
+    .c-arrow {
       background: none; border: 1px solid var(--dim2);
-      color: var(--bone); width: 44px; height: 44px;
-      cursor: pointer; font-size: 1rem;
+      color: var(--bone); width: 48px; height: 48px;
+      cursor: pointer; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.3s, color 0.3s;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+      flex-shrink: 0;
     }
-    .s-arrow:hover { border-color: var(--gold); color: var(--gold); }
-
-    .slider-counter {
+    .c-arrow:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,150,62,0.05); }
+    .carousel-label {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.9rem; letter-spacing: 0.2em; color: var(--dim2);
+      font-size: 0.85rem; letter-spacing: 0.25em; color: var(--dim2);
+      min-width: 80px; text-align: center;
     }
-    .slider-counter span { color: var(--gold); }
+    .carousel-label span { color: var(--gold); }
 
     /* ─── FOUNDER ─── */
     .founder {
@@ -627,10 +718,16 @@
       .about-inner { grid-template-columns: 1fr; gap: 3rem; }
       .ventures-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .ventures-sub { text-align: left; max-width: none; }
-      .venture-slide { grid-template-columns: 1fr; min-height: auto; }
-      .vs-left { border-right: none; border-bottom: 1px solid var(--dim2); padding: 2.5rem 2rem; }
-      .vs-right { padding: 2.5rem 2rem; }
-      .slider-controls { flex-direction: column; gap: 1.5rem; align-items: center; }
+      /* 3D carousel mobile */
+      .carousel-stage { height: 400px; perspective: 800px; }
+      .vc-card { width: 300px; height: 380px; margin-top: -190px; margin-left: -150px; }
+      .vc-card.pos-n1 { transform: translateX(-220px) translateZ(-120px) rotateY(42deg) scale(0.85); }
+      .vc-card.pos-1  { transform: translateX(220px)  translateZ(-120px) rotateY(-42deg) scale(0.85); }
+      .vc-card.pos-n2 { transform: translateX(-380px) translateZ(-280px) rotateY(62deg) scale(0.68); }
+      .vc-card.pos-2  { transform: translateX(380px)  translateZ(-280px) rotateY(-62deg) scale(0.68); }
+      .vc-body { padding: 1.8rem 2rem; }
+      .vc-name { font-size: 1.8rem; }
+      .carousel-controls { gap: 1.5rem; }
       .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
       footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
       .footer-right { gap: 1.5rem; }
@@ -798,130 +895,119 @@
         <p class="ventures-sub">Four operating ventures across production, media, technology, and community — each built to lead its category.</p>
       </div>
 
-      <div class="ventures-slider">
-        <div class="ventures-track" id="venturesTrack">
+      <!-- 3D Carousel Stage -->
+      <div class="carousel-stage" id="carouselStage">
+        <div class="carousel-track" id="carouselTrack">
 
-          <!-- Slide 1: 7th Creation -->
-          <a class="venture-slide" href="https://7thcreation.com" target="_blank" rel="noopener">
-            <div class="vs-accent gold"></div>
-            <div class="vs-left">
-              <div>
-                <div class="vs-num">01 — 7thcreation.com</div>
-                <div class="vs-name">7th Creation<br/>Studio</div>
-                <div class="vs-type">Production & Fabrication</div>
+          <!-- Card 0: 7th Creation -->
+          <a class="vc-card" data-idx="0" href="https://7thcreation.com" target="_blank" rel="noopener">
+            <div class="vc-hero" style="background-image:url('hero-7thcreation.jpg')"></div>
+            <div class="vc-accent" style="background:linear-gradient(90deg,#1EC88C,#2ABFBF)"></div>
+            <div class="vc-body">
+              <div class="vc-num">01 — 7thcreation.com</div>
+              <div class="vc-name">7th Creation<br/>Studio</div>
+              <div class="vc-type">Production & Fabrication</div>
+              <div class="vc-tags">
+                <span class="vc-tag">Large-Format Print</span>
+                <span class="vc-tag">Vehicle Wraps</span>
+                <span class="vc-tag">Trade Show</span>
+                <span class="vc-tag">Installation</span>
               </div>
-              <div>
-                <div class="vs-status">
+              <p class="vc-desc">Oakland's premier large-format print and fabrication studio. From Chase Center to Marriott Hotels — concept to installation.</p>
+              <div class="vc-footer">
+                <div class="vc-status">
                   <div class="vs-dot active"></div>
-                  <span style="color:var(--green)">Active</span>
+                  <span style="color:var(--green)">Active · Oakland, CA</span>
                 </div>
-                <div class="vs-url">7thcreation.com ↗</div>
-              </div>
-            </div>
-            <div class="vs-right">
-              <p class="vs-desc">A production and fabrication studio focused on large-format print, installation, and real-world execution. Where ideas become physical realities — from concept to installation floor.</p>
-              <div class="vs-tags">
-                <span class="vs-tag">Large-Format Print</span>
-                <span class="vs-tag">Installation</span>
-                <span class="vs-tag">Fabrication</span>
-                <span class="vs-tag">Brand Environments</span>
+                <div class="vc-url">7thcreation.com ↗</div>
               </div>
             </div>
           </a>
 
-          <!-- Slide 2: Namdah -->
-          <a class="venture-slide" href="https://namdah.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-            <div class="vs-accent teal"></div>
-            <div class="vs-left">
-              <div>
-                <div class="vs-num">02 — namdah.com</div>
-                <div class="vs-name">Namdah<br/>Studio</div>
-                <div class="vs-type">Culture-Led Media</div>
+          <!-- Card 1: Namdah -->
+          <a class="vc-card" data-idx="1" href="https://namdah.com" target="_blank" rel="noopener">
+            <div class="vc-hero" style="background-image:url('hero-namdah.jpg')"></div>
+            <div class="vc-accent" style="background:linear-gradient(90deg,#D4AE5A,#E8C870)"></div>
+            <div class="vc-body">
+              <div class="vc-num">02 — namdah.com</div>
+              <div class="vc-name">Namdah<br/>Studio</div>
+              <div class="vc-type">Culture-Led Media</div>
+              <div class="vc-tags">
+                <span class="vc-tag">Original IP</span>
+                <span class="vc-tag">Live Music</span>
+                <span class="vc-tag">Storytelling</span>
+                <span class="vc-tag">African Culture</span>
               </div>
-              <div>
-                <div class="vs-status">
-                  <div class="vs-dot dev"></div>
-                  <span style="color:var(--gold-lt)">In Development</span>
+              <p class="vc-desc">A culture-led experiential studio designing cultural experiences and turning them into media systems. 4 original shows. 106K+ views.</p>
+              <div class="vc-footer">
+                <div class="vc-status">
+                  <div class="vs-dot active"></div>
+                  <span style="color:var(--green)">Active · Accra, Ghana</span>
                 </div>
-                <div class="vs-url">namdah.com ↗</div>
-              </div>
-            </div>
-            <div class="vs-right">
-              <p class="vs-desc">A culture-led experiential media studio that turns experiences into scalable media systems. Rooted in African culture, built for a global audience.</p>
-              <div class="vs-tags">
-                <span class="vs-tag">Media</span>
-                <span class="vs-tag">Experiential</span>
-                <span class="vs-tag">Content Systems</span>
-                <span class="vs-tag">African Culture</span>
+                <div class="vc-url">namdah.com ↗</div>
               </div>
             </div>
           </a>
 
-          <!-- Slide 3: UnionIsh -->
-          <a class="venture-slide" href="https://unionish.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-            <div class="vs-accent ember"></div>
-            <div class="vs-left">
-              <div>
-                <div class="vs-num">03 — unionish.com</div>
-                <div class="vs-name">UnionIsh<br/>App</div>
-                <div class="vs-type">Union Tech Platform</div>
+          <!-- Card 2: UnionIsh -->
+          <a class="vc-card" data-idx="2" href="https://unionish.com" target="_blank" rel="noopener">
+            <div class="vc-hero" style="background-image:url('hero-unionish.jpg')"></div>
+            <div class="vc-accent" style="background:linear-gradient(90deg,#C45B2A,#E07840)"></div>
+            <div class="vc-body">
+              <div class="vc-num">03 — unionish.com</div>
+              <div class="vc-name">UnionIsh<br/>App</div>
+              <div class="vc-type">Union Tech Platform</div>
+              <div class="vc-tags">
+                <span class="vc-tag">Union Labor</span>
+                <span class="vc-tag">Hours Tracking</span>
+                <span class="vc-tag">CBA Compliance</span>
+                <span class="vc-tag">Workforce Ops</span>
               </div>
-              <div>
-                <div class="vs-status">
+              <p class="vc-desc">A work hours tracking platform built for union environments — handling pay grades, CBA rules, overtime, and contract compliance.</p>
+              <div class="vc-footer">
+                <div class="vc-status">
                   <div class="vs-dot soon"></div>
                   <span style="color:var(--ember)">Launching Soon</span>
                 </div>
-                <div class="vs-url">unionish.com ↗</div>
-              </div>
-            </div>
-            <div class="vs-right">
-              <p class="vs-desc">A systems-focused platform built specifically for union labor environments — handling the complexity of collective bargaining, pay grades, and contract compliance that generic tools ignore.</p>
-              <div class="vs-tags">
-                <span class="vs-tag">Union Labor</span>
-                <span class="vs-tag">Workforce Ops</span>
-                <span class="vs-tag">CBA Compliance</span>
-                <span class="vs-tag">Systems</span>
+                <div class="vc-url">unionish.com ↗</div>
               </div>
             </div>
           </a>
 
-          <!-- Slide 4: Gift for Givers -->
-          <div class="venture-slide" style="text-decoration:none;color:inherit;">
-            <div class="vs-accent silver"></div>
-            <div class="vs-left">
-              <div>
-                <div class="vs-num">04</div>
-                <div class="vs-name">Gift for<br/>Givers</div>
-                <div class="vs-type">Community & Giving</div>
+          <!-- Card 3: Gift for Givers -->
+          <a class="vc-card" data-idx="3" href="https://giftforgivers.com" target="_blank" rel="noopener">
+            <div class="vc-hero" style="background-image:url('hero-giftforgivers.jpg')"></div>
+            <div class="vc-accent" style="background:linear-gradient(90deg,#C86428,#E07840)"></div>
+            <div class="vc-body">
+              <div class="vc-num">04 — giftforgivers.com</div>
+              <div class="vc-name">Gift for<br/>Givers</div>
+              <div class="vc-type">Community Support Platform</div>
+              <div class="vc-tags">
+                <span class="vc-tag">Community</span>
+                <span class="vc-tag">Giving</span>
+                <span class="vc-tag">Cultural Support</span>
+                <span class="vc-tag">Interior Bond</span>
               </div>
-              <div>
-                <div class="vs-status">
-                  <div class="vs-dot dev"></div>
-                  <span style="color:var(--gold-lt)">In Development</span>
+              <p class="vc-desc">A community support platform that celebrates and pours back into the people who help meaningful things grow. Not charity. A system built for givers.</p>
+              <div class="vc-footer">
+                <div class="vc-status">
+                  <div class="vs-dot active"></div>
+                  <span style="color:var(--green)">Active</span>
                 </div>
-                <div class="vs-url">Coming Soon</div>
+                <div class="vc-url">giftforgivers.com ↗</div>
               </div>
             </div>
-            <div class="vs-right">
-              <p class="vs-desc">What began as a simple "Thank You" has grown into a movement. A platform dedicated to rewarding generosity and inspiring giving at scale.</p>
-              <div class="vs-tags">
-                <span class="vs-tag">Community</span>
-                <span class="vs-tag">Giving</span>
-                <span class="vs-tag">Movement</span>
-              </div>
-            </div>
-          </div>
+          </a>
 
         </div><!-- end track -->
-      </div><!-- end slider -->
+      </div><!-- end stage -->
 
-      <div class="slider-controls reveal">
-        <div class="slider-dots" id="sliderDots"></div>
-        <div class="slider-counter"><span id="sliderCurrent">01</span> / 04</div>
-        <div class="slider-arrows">
-          <button class="s-arrow" id="sPrev" aria-label="Previous">←</button>
-          <button class="s-arrow" id="sNext" aria-label="Next">→</button>
-        </div>
+      <!-- Carousel Controls -->
+      <div class="carousel-controls reveal">
+        <button class="c-arrow" id="cPrev" aria-label="Previous">←</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-label"><span id="carouselCurrent">01</span> / 04</div>
+        <button class="c-arrow" id="cNext" aria-label="Next">→</button>
       </div>
 
     </div>
@@ -1068,39 +1154,74 @@
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 
-    // ─── Ventures slider ───
+    // ─── 3D Carousel ───
     (function() {
-      const track = document.getElementById('venturesTrack');
-      const dotsEl = document.getElementById('sliderDots');
-      const counterEl = document.getElementById('sliderCurrent');
-      const slides = track ? Array.from(track.querySelectorAll('.venture-slide')) : [];
-      let cur = 0, timer;
-      if (!slides.length) return;
+      const stage = document.getElementById('carouselStage');
+      const dotsEl = document.getElementById('carouselDots');
+      const counterEl = document.getElementById('carouselCurrent');
+      const cards = Array.from(document.querySelectorAll('.vc-card'));
+      const N = cards.length;
+      let active = 0, timer;
+      if (!N) return;
 
-      slides.forEach((_,i) => {
+      // Build dots
+      cards.forEach((_,i) => {
         const d = document.createElement('div');
-        d.className = 's-dot' + (i===0?' active':'');
+        d.className = 'c-dot' + (i===0?' active':'');
         d.addEventListener('click', () => go(i));
         dotsEl.appendChild(d);
       });
 
+      // Position classes: relative offset from active
+      const posClass = ['pos-n2','pos-n1','pos-0','pos-1','pos-2'];
+
       function go(idx) {
-        cur = (idx + slides.length) % slides.length;
-        track.style.transform = `translateX(-${cur*100}%)`;
-        document.querySelectorAll('.s-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
-        counterEl.textContent = String(cur+1).padStart(2,'0');
-        clearInterval(timer); timer = setInterval(() => go(cur+1), 6000);
+        active = ((idx % N) + N) % N;
+        cards.forEach((card, i) => {
+          // Remove all pos classes
+          card.className = card.className.replace(/\bpos-[^\s]*/g, '').trim();
+          const offset = ((i - active + N) % N);
+          // Map offset to display position
+          // 0 = active, 1 = right-1, 2 = right-2, N-1 = left-1, N-2 = left-2
+          let cls;
+          if (offset === 0)       cls = 'pos-0';
+          else if (offset === 1)  cls = 'pos-1';
+          else if (offset === 2)  cls = 'pos-2';
+          else if (offset === N-1) cls = 'pos-n1';
+          else if (offset === N-2) cls = 'pos-n2';
+          else                    cls = 'pos-hidden';
+          card.classList.add(cls);
+        });
+        document.querySelectorAll('.c-dot').forEach((d,i) => d.classList.toggle('active', i===active));
+        counterEl.textContent = String(active+1).padStart(2,'0');
+        clearInterval(timer);
+        timer = setInterval(() => go(active+1), 6000);
       }
 
-      document.getElementById('sPrev').addEventListener('click', () => go(cur-1));
-      document.getElementById('sNext').addEventListener('click', () => go(cur+1));
+      // Click on side cards to navigate to them
+      cards.forEach((card, i) => {
+        card.addEventListener('click', e => {
+          if (i !== active) {
+            e.preventDefault();
+            go(i);
+          }
+          // If active, let the link through naturally
+        });
+      });
 
-      // Swipe
+      document.getElementById('cPrev').addEventListener('click', () => go(active-1));
+      document.getElementById('cNext').addEventListener('click', () => go(active+1));
+
+      // Touch swipe
       let tx = 0;
-      track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
-      track.addEventListener('touchend', e => { const d=tx-e.changedTouches[0].clientX; if(Math.abs(d)>50) go(d>0?cur+1:cur-1); });
+      stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+      stage.addEventListener('touchend', e => {
+        const d = tx - e.changedTouches[0].clientX;
+        if (Math.abs(d) > 50) go(d > 0 ? active+1 : active-1);
+      });
 
-      timer = setInterval(() => go(cur+1), 6000);
+      // Init
+      go(0);
     })();
 
     // ─── Scroll reveal ───
