@@ -3,34 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ═══════════════════════════════════════════════
-       PRIMARY SEO META TAGS
-  ═══════════════════════════════════════════════ -->
   <title>Interior Bond | Creative Ecosystem & Holding Company</title>
   <meta name="description" content="Interior Bond is a creative ecosystem and holding company — a venture-building and business development organisation that creates, develops, and activates brands, media, and experiences. Designing the Bond Between Vision and Reality. Founded by General Ishmael." />
   <meta name="keywords" content="Interior Bond, creative ecosystem, holding company, venture building, business development, General Ishmael, Ishmael Agyapong, creative conglomerate, Ghana, Bay Area, culture, creativity, 7th Creation Studio, Namdah Studio, UnionIsh, Gift for Givers" />
   <meta name="author" content="Interior Bond" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://interiorbond.com/" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://interiorbond.com/" />
   <meta property="og:title" content="Interior Bond | Creative Ecosystem & Holding Company" />
-  <meta property="og:description" content="A venture-building and business development organisation that creates, develops, and activates brands, media, and experiences. Designing the Bond Between Vision and Reality." />
+  <meta property="og:description" content="A venture-building and business development organisation that creates, develops, and activates brands, media, and experiences." />
   <meta property="og:image" content="https://interiorbond.com/og-image.jpg" />
-  <meta property="og:site_name" content="Interior Bond" />
-  <meta property="og:locale" content="en_US" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@interiorbond" />
   <meta name="twitter:title" content="Interior Bond | Creative Ecosystem & Holding Company" />
   <meta name="twitter:description" content="A venture-building and business development organisation. Designing the Bond Between Vision and Reality. Founded by General Ishmael." />
   <meta name="twitter:image" content="https://interiorbond.com/og-image.jpg" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
-  <!-- JSON-LD Entity SEO -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,7 +37,7 @@
         "legalName": "Interior Bond LLC",
         "alternateName": ["Interior Bond Group Ltd", "Interior Bond Innovative Studio"],
         "url": "https://interiorbond.com",
-        "logo": { "@type": "ImageObject", "url": "https://interiorbond.com/logo.webp" },
+        "logo": { "@type": "ImageObject", "url": "https://interiorbond.com/logo-mark-transparent.png" },
         "description": "Interior Bond is a creative ecosystem and holding company — a venture-building and business development organisation that creates, develops, and activates brands, media, and experiences.",
         "slogan": "Designing the Bond Between Vision and Reality",
         "foundingDate": "2008",
@@ -54,11 +49,8 @@
           "jobTitle": "Founder & Creative Director",
           "worksFor": { "@id": "https://interiorbond.com/#organization" }
         },
-        "contactPoint": { "@type": "ContactPoint", "email": "info@interiorbond.com", "contactType": "General Enquiries" },
-        "sameAs": [
-          "https://www.instagram.com/interiorbond/",
-          "https://www.facebook.com/p/Interior-Bond-Innovative-Studio-61575195775905/"
-        ],
+        "contactPoint": { "@type": "ContactPoint", "email": "ish@interiorbond.com", "contactType": "General Enquiries" },
+        "sameAs": ["https://www.instagram.com/interiorbond/"],
         "areaServed": ["US", "GH"],
         "knowsAbout": ["Venture Building","Creative Strategy","Brand Development","Cultural Intelligence","Business Development","Media and Entertainment"]
       },
@@ -73,1131 +65,1062 @@
   }
   </script>
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #060D1F;
+      --bg:     #060D1F;
+      --bone:   #EDE9E0;
+      --gold:   #B8963E;
+      --gold-lt:#D4AE5A;
       --teal:   #1A8C8C;
-      --orange: #E8622A;
-      --gold:   #C9A84C;
-      --white:  #F5F3EE;
-      --dim:    rgba(245,243,238,0.55);
+      --ember:  #C45B2A;
+      --dim:    rgba(237,233,224,0.45);
+      --dim2:   rgba(237,233,224,0.12);
+      --green:  #3EC47A;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--bone);
+      font-family: 'DM Sans', sans-serif;
       overflow-x: hidden;
-      min-height: 100vh;
+      cursor: none;
     }
 
+    /* ─── CUSTOM CURSOR ─── */
+    .cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 40px; height: 40px;
+      border: 1px solid rgba(184,150,62,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+    }
+    body:hover .cursor { opacity: 1; }
+    a:hover ~ .cursor, button:hover ~ .cursor { width: 20px; height: 20px; }
+
+    /* ─── CANVAS ─── */
     #bg-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
     }
 
-    body::after {
+    /* ─── NOISE ─── */
+    body::before {
       content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1; opacity: 1;
+    }
+
+    /* ─── GRID ─── */
+    .grid-bg {
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
       pointer-events: none;
-      z-index: 1;
-      opacity: 0.4;
     }
 
-    .page {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 4rem;
-      position: relative;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 4rem;
+      border-bottom: 1px solid var(--dim2);
+      backdrop-filter: blur(16px);
+      background: rgba(6,13,31,0.75);
+      transition: padding 0.4s;
     }
+    nav.scrolled { padding: 1rem 4rem; }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    .nav-left {
+      display: flex; align-items: center; gap: 0.9rem;
       text-decoration: none;
     }
-
-    .nav-logo img {
-      height: 44px;
-      width: auto;
-      filter: drop-shadow(0 0 12px rgba(232,98,42,0.4));
-      transition: filter 0.3s;
-    }
-
-    .nav-logo:hover img {
-      filter: drop-shadow(0 0 20px rgba(232,98,42,0.7));
-    }
-
+    .nav-left img { height: 32px; width: auto; filter: drop-shadow(0 0 8px rgba(184,150,62,0.3)); }
     .nav-wordmark {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.12em;
-      color: var(--white);
+      font-size: 1.3rem; letter-spacing: 0.18em; color: var(--bone);
     }
-
-    .nav-contact {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--dim);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
+    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-link {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--dim); text-decoration: none; transition: color 0.3s;
     }
-
-    .nav-contact:hover {
-      color: var(--gold);
-      border-color: var(--gold);
+    .nav-link:hover { color: var(--gold); }
+    .nav-cta {
+      border: 1px solid rgba(184,150,62,0.4);
+      padding: 0.5rem 1.25rem;
+      color: var(--gold); font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.3s, color 0.3s;
     }
+    .nav-cta:hover { background: var(--gold); color: var(--bg); }
 
-    /* ── HERO ── */
+    /* ─── HERO ─── */
     .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      position: relative; z-index: 2;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
       text-align: center;
-      padding: 4rem 2rem 2rem;
-    }
-
-    .hero-logo-wrap {
-      position: relative;
-      width: 260px;
-      height: 260px;
-      margin-bottom: 1.5rem;
-      cursor: pointer;
-    }
-
-    .hero-logo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      animation: float 6s ease-in-out infinite;
-      filter: drop-shadow(0 0 40px rgba(26,140,140,0.35)) drop-shadow(0 0 80px rgba(232,98,42,0.2));
-      transition: filter 0.4s;
-    }
-
-    .hero-logo-wrap:hover img {
-      filter: drop-shadow(0 0 60px rgba(26,140,140,0.6)) drop-shadow(0 0 100px rgba(232,98,42,0.4));
-      animation-play-state: paused;
-    }
-
-    .orbit-ring {
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,168,76,0.2);
-      animation: orbit-spin 20s linear infinite;
-    }
-
-    .orbit-ring::before {
-      content: '';
-      position: absolute;
-      top: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 10px var(--gold);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33%       { transform: translateY(-12px) rotate(1deg); }
-      66%       { transform: translateY(-6px) rotate(-1deg); }
-    }
-
-    @keyframes orbit-spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.35);
-      border-radius: 100px;
-      padding: 0.35rem 1rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(0.7); }
-    }
-
-    .headline {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 18vw, 14rem);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    .line-teal  { color: var(--teal); display: block; }
-    .line-white { color: var(--white); display: block; }
-
-    .tagline {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      color: var(--dim);
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-
-    .gold-line {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--gold), var(--orange));
-      margin: 0 auto 2rem;
-      border-radius: 2px;
-    }
-
-    .descriptor {
-      max-width: 680px;
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
-      line-height: 1.8;
-      color: var(--dim);
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .descriptor strong { color: var(--white); font-weight: 600; }
-
-    /* ── MARQUEE ── */
-    .marquee-wrap {
-      width: 100%;
       overflow: hidden;
-      border-top: 1px solid rgba(245,243,238,0.06);
-      border-bottom: 1px solid rgba(245,243,238,0.06);
-      padding: 0.75rem 0;
-      margin-bottom: 5rem;
+      padding: 8rem 2rem 4rem;
     }
 
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      animation: marquee-scroll 30s linear infinite;
+    /* Giant BG word */
+    .hero-bg-word {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(10rem, 28vw, 26rem);
+      letter-spacing: -0.02em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(184,150,62,0.07);
       white-space: nowrap;
+      pointer-events: none; user-select: none;
+      z-index: 1;
+      will-change: transform;
     }
 
-    .marquee-track span {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(245,243,238,0.25);
-      flex-shrink: 0;
+    /* Logo with 3D tilt */
+    .hero-logo {
+      position: relative; z-index: 4;
+      margin-bottom: 1.5rem;
+      will-change: transform;
+      transition: transform 0.08s linear;
+    }
+    .hero-logo img {
+      width: clamp(120px, 16vw, 200px); height: auto;
+      filter: drop-shadow(0 0 50px rgba(184,150,62,0.3)) drop-shadow(0 0 100px rgba(26,140,140,0.15));
+      animation: float 9s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-14px); }
     }
 
-    .marquee-track span.accent { color: var(--gold); }
-
-    @keyframes marquee-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    /* Orbiting ring */
+    .hero-logo::after {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      width: 130%; height: 130%;
+      border: 1px solid rgba(184,150,62,0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotateX(70deg);
+      animation: orbit 12s linear infinite;
+    }
+    @keyframes orbit {
+      from { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg); }
+      to   { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg); }
     }
 
-    /* ══════════════════════════════════════════
-       PILLARS — UPGRADED
-    ══════════════════════════════════════════ */
-    .pillars-section {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto 6rem;
-      padding: 0 2rem;
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      line-height: 0.88; letter-spacing: 0.04em;
+      position: relative; z-index: 4;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name .w1 { color: var(--bone); display: block; }
+    .hero-name .w2 { color: var(--gold); display: block; }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin-bottom: 1rem;
+      position: relative; z-index: 4;
+    }
+    .hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+    .hero-eyebrow span {
+      font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
     }
 
-    .section-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      text-align: center;
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--dim); line-height: 1.6;
+      max-width: 520px;
+      position: relative; z-index: 4;
       margin-bottom: 2.5rem;
     }
 
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(245,243,238,0.06);
-      border: 1px solid rgba(245,243,238,0.06);
+    .hero-stats {
+      display: flex; gap: 4rem; justify-content: center;
+      position: relative; z-index: 4;
     }
-
-    .pillar-card {
-      background: var(--navy);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-      transition: background 0.4s;
-    }
-
-    .pillar-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(26,140,140,0.08) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .pillar-card:hover { background: rgba(26,140,140,0.04); }
-    .pillar-card:hover::before { opacity: 1; }
-
-    .pillar-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--orange));
-      transform: scaleX(0);
-      transition: transform 0.4s;
-      transform-origin: left;
-    }
-
-    .pillar-card:hover::after { transform: scaleX(1); }
-
-    .pillar-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,168,76,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      background: rgba(201,168,76,0.05);
-      transition: border-color 0.4s, background 0.4s;
-    }
-
-    .pillar-card:hover .pillar-icon-wrap {
-      border-color: rgba(26,140,140,0.5);
-      background: rgba(26,140,140,0.1);
-    }
-
-    .pillar-name {
+    .stat { text-align: center; }
+    .stat-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      color: var(--white);
-      line-height: 1.2;
+      font-size: 2.5rem; line-height: 1; color: var(--bone); letter-spacing: 0.05em;
+    }
+    .stat-label {
+      font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--dim); margin-top: 0.25rem;
     }
 
-    .pillar-sub {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: rgba(245,243,238,0.35);
-      line-height: 1.5;
-      max-width: 160px;
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .scroll-hint span { font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim2); }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 1; transform: scaleY(1.15); }
     }
 
-    /* ══════════════════════════════════════════
-       VENTURES SHOWCASE
-    ══════════════════════════════════════════ */
-    .ventures-section {
-      width: 100%;
-      margin-bottom: 6rem;
-      padding: 0 0 1rem;
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      position: relative; z-index: 2; width: 100%; overflow: hidden;
+      border-top: 1px solid var(--dim2); border-bottom: 1px solid var(--dim2);
+      padding: 1rem 0; background: rgba(184,150,62,0.025);
+    }
+    .marquee-track {
+      display: flex; gap: 4rem;
+      animation: marquee 30s linear infinite; white-space: nowrap;
+    }
+    .marquee-track span {
+      font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(237,233,224,0.18); flex-shrink: 0;
+    }
+    .marquee-track .dot { color: var(--gold); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── ABOUT ─── */
+    .about {
+      position: relative; z-index: 2;
+      padding: 10rem 0;
+      border-top: 1px solid var(--dim2);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 8rem; align-items: start;
+    }
+
+    .section-tag {
+      font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+
+    .about-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.9; letter-spacing: 0.02em; color: var(--bone);
+      margin-bottom: 2rem;
+    }
+    .about-headline em { color: var(--gold); font-style: normal; }
+
+    .about-divider {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--teal));
+      margin-bottom: 2rem;
+    }
+
+    .about-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; line-height: 1.85; color: var(--dim);
+    }
+    .about-body strong { color: var(--bone); font-weight: 600; }
+
+    /* Pillars */
+    .pillar-row {
+      display: grid; grid-template-columns: 2.5rem 1fr auto;
+      align-items: center; gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--dim2);
+      transition: border-color 0.3s;
+    }
+    .pillar-row:first-child { border-top: 1px solid var(--dim2); }
+    .pillar-row:hover { border-bottom-color: var(--gold); }
+
+    .pillar-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem; letter-spacing: 0.2em; color: var(--gold); opacity: 0.5;
+    }
+    .pillar-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: 0.1em; color: var(--bone);
+    }
+    .pillar-desc {
+      font-size: 0.62rem; letter-spacing: 0.1em; color: var(--dim2);
+      text-align: right; max-width: 160px;
+    }
+
+    /* ─── VENTURES ─── */
+    .ventures {
+      position: relative; z-index: 2;
+      padding: 10rem 0;
+      border-top: 1px solid var(--dim2);
     }
 
     .ventures-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 5rem;
     }
-
-    .ventures-header h2 {
+    .ventures-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 6vw, 4rem);
-      letter-spacing: 0.08em;
-      color: var(--white);
-      margin-bottom: 0.5rem;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.9; letter-spacing: 0.02em; color: var(--bone);
+    }
+    .ventures-sub {
+      font-size: 0.7rem; letter-spacing: 0.1em; color: var(--dim2);
+      max-width: 280px; text-align: right; line-height: 1.7;
     }
 
-    .ventures-header p {
-      font-size: 0.85rem;
-      color: var(--dim);
-      letter-spacing: 0.1em;
-    }
-
-    /* Horizontal scroll track */
-    .ventures-track-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-
+    /* Rotation */
+    .ventures-slider { position: relative; overflow: hidden; width: 100%; }
     .ventures-track {
       display: flex;
-      gap: 1.5rem;
-      padding: 1rem 4rem 2rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      cursor: grab;
+      transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
+      will-change: transform;
     }
 
-    .ventures-track:active { cursor: grabbing; }
-    .ventures-track::-webkit-scrollbar { display: none; }
+    .venture-slide {
+      min-width: 100%; width: 100%; flex-shrink: 0;
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      border: 1px solid var(--dim2);
+      position: relative; overflow: hidden;
+      min-height: 420px;
+      transition: border-color 0.4s;
+    }
+    .venture-slide:hover { border-color: rgba(184,150,62,0.3); }
 
-    /* Fade edges */
-    .ventures-track-wrap::before,
-    .ventures-track-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 80px;
-      z-index: 3;
-      pointer-events: none;
+    .vs-accent {
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .vs-accent.gold   { background: linear-gradient(90deg, var(--gold), var(--gold-lt)); }
+    .vs-accent.teal   { background: linear-gradient(90deg, var(--teal), #2ABFBF); }
+    .vs-accent.ember  { background: linear-gradient(90deg, var(--ember), #E07840); }
+    .vs-accent.silver { background: linear-gradient(90deg, #8A8A8A, #C0C0C0); }
+
+    .vs-left {
+      padding: 4rem 3.5rem;
+      border-right: 1px solid var(--dim2);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .vs-right {
+      padding: 4rem 3.5rem;
+      display: flex; flex-direction: column; justify-content: center;
     }
 
-    .ventures-track-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, var(--navy), transparent);
-    }
-
-    .ventures-track-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, var(--navy), transparent);
-    }
-
-    /* Venture card */
-    .venture-card {
-      flex: 0 0 320px;
-      scroll-snap-align: start;
-      background: rgba(245,243,238,0.03);
-      border: 1px solid rgba(245,243,238,0.08);
-      padding: 2.5rem 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.4s, transform 0.4s;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .venture-card:hover {
-      border-color: rgba(26,140,140,0.35);
-      transform: translateY(-6px);
-    }
-
-    .venture-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--card-accent, linear-gradient(90deg, var(--teal), var(--orange)));
-    }
-
-    .venture-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at top left, var(--card-glow, rgba(26,140,140,0.06)) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    /* Per-card accent colours */
-    .venture-card.v-7th    { --card-accent: linear-gradient(90deg, #E8622A, #C9A84C); --card-glow: rgba(232,98,42,0.07); }
-    .venture-card.v-namdah { --card-accent: linear-gradient(90deg, #1A8C8C, #0D5C8C); --card-glow: rgba(26,140,140,0.07); }
-    .venture-card.v-gfg    { --card-accent: linear-gradient(90deg, #C9A84C, #E8622A); --card-glow: rgba(201,168,76,0.07); }
-    .venture-card.v-union  { --card-accent: linear-gradient(90deg, #0D5C8C, #1A8C8C); --card-glow: rgba(13,92,140,0.07); }
-
-    .venture-number {
+    .vs-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      color: rgba(245,243,238,0.2);
+      font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gold); opacity: 0.4;
+      margin-bottom: 2rem;
     }
-
-    .venture-name {
+    .vs-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.06em;
-      color: var(--white);
-      line-height: 1;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 0.95; letter-spacing: 0.03em; color: var(--bone);
+      margin-bottom: 0.5rem;
+    }
+    .vs-type {
+      font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 2rem;
+    }
+    .vs-status {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .vs-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+    }
+    .vs-dot.active { background: var(--green); box-shadow: 0 0 6px var(--green); animation: pdot 2s infinite; }
+    .vs-dot.dev    { background: var(--gold); box-shadow: 0 0 6px var(--gold); animation: pdot 2s infinite; }
+    .vs-dot.soon   { background: var(--ember); box-shadow: 0 0 6px var(--ember); animation: pdot 2s infinite; }
+    @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+    .vs-url {
+      font-size: 0.6rem; letter-spacing: 0.15em; color: var(--dim2); text-transform: lowercase;
+      margin-top: 0.75rem;
     }
 
-    .venture-type {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: -0.5rem;
+    .vs-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; line-height: 1.8; color: var(--dim);
+      margin-bottom: 2rem;
     }
-
-    .venture-desc {
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: rgba(245,243,238,0.55);
-      flex: 1;
+    .vs-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .vs-tag {
+      font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
+      border: 1px solid var(--dim2); padding: 0.25rem 0.6rem; color: var(--dim2);
+      transition: border-color 0.3s, color 0.3s;
     }
+    .venture-slide:hover .vs-tag { border-color: rgba(184,150,62,0.3); color: var(--dim); }
 
-    .venture-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
+    /* Slider controls */
+    .slider-controls {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 2.5rem;
     }
-
-    .venture-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border: 1px solid rgba(245,243,238,0.1);
-      color: rgba(245,243,238,0.4);
-      border-radius: 2px;
-    }
-
-    .venture-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-top: auto;
-    }
-
-    .venture-status-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--teal);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-
-    /* Scroll indicators */
-    .ventures-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      padding: 0 2rem;
-    }
-
-    .ventures-nav-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(245,243,238,0.15);
-      background: transparent;
-      color: var(--dim);
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.3s, color 0.3s, background 0.3s;
-    }
-
-    .ventures-nav-btn:hover {
-      border-color: var(--teal);
-      color: var(--teal);
-      background: rgba(26,140,140,0.08);
-    }
-
-    .ventures-dots {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .ventures-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(245,243,238,0.2);
-      cursor: pointer;
+    .slider-dots { display: flex; gap: 0.6rem; align-items: center; }
+    .s-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--dim2); cursor: pointer;
       transition: background 0.3s, transform 0.3s;
     }
+    .s-dot.active { background: var(--gold); transform: scale(1.5); }
 
-    .ventures-dot.active {
-      background: var(--gold);
-      transform: scale(1.3);
+    .slider-arrows { display: flex; gap: 1rem; }
+    .s-arrow {
+      background: none; border: 1px solid var(--dim2);
+      color: var(--bone); width: 44px; height: 44px;
+      cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .s-arrow:hover { border-color: var(--gold); color: var(--gold); }
+
+    .slider-counter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem; letter-spacing: 0.2em; color: var(--dim2);
+    }
+    .slider-counter span { color: var(--gold); }
+
+    /* ─── FOUNDER ─── */
+    .founder {
+      position: relative; z-index: 2;
+      padding: 10rem 0;
+      border-top: 1px solid var(--dim2);
+    }
+    .founder-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 8rem; align-items: center;
     }
 
-    /* ── EMAIL CAPTURE ── */
-    .notify-section {
+    .founder-label {
+      font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .founder-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      line-height: 0.88; letter-spacing: 0.02em; color: var(--bone);
+      margin-bottom: 0.5rem;
+    }
+    .founder-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--gold); margin-bottom: 2.5rem;
+    }
+    .founder-bio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; line-height: 1.85; color: var(--dim);
+      margin-bottom: 2.5rem;
+    }
+    .founder-bio strong { color: var(--bone); font-weight: 600; }
+
+    .founder-creds { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .cred {
+      font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase;
+      border: 1px solid var(--dim2); padding: 0.3rem 0.7rem; color: var(--dim2);
+    }
+
+    .founder-quote-box {
+      background: rgba(184,150,62,0.04);
+      border: 1px solid rgba(184,150,62,0.15);
+      border-left: 3px solid var(--gold);
+      padding: 3rem;
+      margin-bottom: 3rem;
+    }
+    .founder-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.3rem; line-height: 1.7;
+      color: var(--bone); margin-bottom: 1.5rem;
+    }
+    .founder-quote-attr {
+      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+    }
+
+    .founder-locations { display: flex; flex-direction: column; gap: 0.75rem; }
+    .loc {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim2);
+    }
+    .loc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+    /* ─── CONTACT CTA ─── */
+    .contact-cta {
+      position: relative; z-index: 2;
+      padding: 10rem 0;
+      border-top: 1px solid var(--dim2);
       text-align: center;
-      max-width: 500px;
-      margin: 0 auto 5rem;
-      padding: 0 2rem;
     }
-
-    .notify-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 1.25rem;
+    .cta-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.9; letter-spacing: 0.02em; color: var(--bone);
+      margin-bottom: 1.5rem;
     }
-
-    .notify-form {
-      display: flex;
-      border: 1px solid rgba(245,243,238,0.15);
-      overflow: hidden;
+    .cta-headline em { color: var(--gold); font-style: normal; }
+    .cta-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.15rem; color: var(--dim);
+      margin-bottom: 3rem;
     }
-
-    .notify-input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      padding: 0.85rem 1.25rem;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      border-right: 1px solid rgba(245,243,238,0.15);
+    .cta-email {
+      display: inline-flex; align-items: center; gap: 1rem;
+      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid rgba(184,150,62,0.3);
+      padding-bottom: 0.5rem;
+      transition: border-color 0.3s, letter-spacing 0.3s;
     }
+    .cta-email:hover { border-color: var(--gold); letter-spacing: 0.35em; }
 
-    .notify-input::placeholder { color: rgba(245,243,238,0.3); }
-
-    .notify-btn {
-      background: transparent;
-      border: none;
-      padding: 0.85rem 1.5rem;
-      color: var(--gold);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-      white-space: nowrap;
-    }
-
-    .notify-btn:hover {
-      background: rgba(201,168,76,0.1);
-      color: var(--white);
-    }
-
-    .notify-success {
-      display: none;
-      font-size: 0.85rem;
-      color: var(--teal);
-      letter-spacing: 0.1em;
-      padding: 1rem 0;
-    }
-
-    /* ── FOOTER ── */
+    /* ─── FOOTER ─── */
     footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 4rem;
-      border-top: 1px solid rgba(245,243,238,0.06);
+      position: relative; z-index: 2;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 2.5rem 4rem;
+      border-top: 1px solid var(--dim2);
     }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: rgba(245,243,238,0.25);
-      letter-spacing: 0.05em;
+    .footer-left { display: flex; align-items: center; gap: 1rem; }
+    .footer-left img { height: 24px; width: auto; opacity: 0.6; }
+    .footer-copy { font-size: 0.6rem; letter-spacing: 0.08em; color: rgba(237,233,224,0.2); }
+    .footer-right { display: flex; gap: 2.5rem; align-items: center; }
+    .footer-right a {
+      font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(237,233,224,0.2); text-decoration: none; transition: color 0.3s;
     }
+    .footer-right a:hover { color: var(--gold); }
 
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .footer-links a {
-      font-size: 0.75rem;
-      color: rgba(245,243,238,0.3);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover { color: var(--gold); }
-
-    /* ── CURSOR GLOW ── */
-    .cursor-glow {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,140,140,0.08) 0%, transparent 70%);
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      transition: opacity 0.3s;
-    }
-
-    /* ── REVEAL ── */
+    /* ─── REVEAL ─── */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── MOBILE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.25rem; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; }
-      .nav-wordmark { font-size: 1.2rem; }
-      .nav-contact { font-size: 0.7rem; }
-      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: center; text-align: center; gap: 0.75rem; }
-      .hero { padding: 2rem 1.5rem 2rem; }
-      .hero-logo-wrap { width: 160px; height: 160px; }
-      .notify-form { flex-direction: column; }
-      .notify-input { border-right: none; border-bottom: 1px solid rgba(245,243,238,0.15); }
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .pillar-card { padding: 1.75rem 1.25rem; }
-      .ventures-track { padding: 1rem 1.5rem 2rem; }
-      .venture-card { flex: 0 0 280px; }
-      .ventures-track-wrap::before,
-      .ventures-track-wrap::after { width: 30px; }
-    }
-
-    @media (max-width: 480px) {
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .venture-card { flex: 0 0 260px; }
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-link { display: none; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-bg-word { font-size: 8rem; }
+      .hero-stats { gap: 2.5rem; }
+      .container { padding: 0 1.5rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .ventures-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .ventures-sub { text-align: left; max-width: none; }
+      .venture-slide { grid-template-columns: 1fr; min-height: auto; }
+      .vs-left { border-right: none; border-bottom: 1px solid var(--dim2); padding: 2.5rem 2rem; }
+      .vs-right { padding: 2.5rem 2rem; }
+      .slider-controls { flex-direction: column; gap: 1.5rem; align-items: center; }
+      .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-right { gap: 1.5rem; }
+      .about { padding: 6rem 0; }
+      .ventures { padding: 6rem 0; }
+      .founder { padding: 6rem 0; }
+      .contact-cta { padding: 6rem 0; }
     }
   </style>
 </head>
 
 <body>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <canvas id="bg-canvas"></canvas>
-  <div class="cursor-glow" id="cursor-glow"></div>
+  <div class="grid-bg"></div>
 
-  <div class="page">
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="/" class="nav-left" aria-label="Interior Bond Home">
+      <img src="logo-mark-transparent.png" alt="Interior Bond" width="32" height="32" />
+      <span class="nav-wordmark">Interior Bond</span>
+    </a>
+    <div class="nav-right">
+      <a href="#ventures" class="nav-link">Ventures</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="mailto:ish@interiorbond.com" class="nav-cta">Get In Touch</a>
+    </div>
+  </nav>
 
-    <!-- NAV -->
-    <nav>
-      <a href="/" class="nav-logo" aria-label="Interior Bond Home">
-        <img src="logo-mark-transparent.png" alt="Interior Bond Logo" width="44" height="44" />
-        <span class="nav-wordmark">Interior Bond</span>
-      </a>
-      <a href="mailto:info@interiorbond.com" class="nav-contact">info@interiorbond.com</a>
-    </nav>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-word" id="heroBgWord" aria-hidden="true">INTERIOR BOND</div>
 
-    <!-- HERO -->
-    <main class="hero" role="main">
+    <div class="hero-logo reveal" id="heroLogo">
+      <img src="logo-mark-transparent.png" alt="Interior Bond mark" loading="eager" />
+    </div>
 
-      <div class="hero-logo-wrap reveal" id="logo-wrap">
-        <div class="orbit-ring"></div>
-        <img src="logo-mark-transparent.png" alt="Interior Bond — Creative Ecosystem and Holding Company" width="260" height="260" loading="eager" />
+    <h1 class="hero-name reveal">
+      <span class="w1">Interior</span>
+      <span class="w2">Bond</span>
+    </h1>
+
+    <div class="hero-eyebrow reveal">
+      <div class="hero-eyebrow-line"></div>
+      <span>Bay Area · Ghana · Est. 2008</span>
+      <div class="hero-eyebrow-line"></div>
+    </div>
+
+    <p class="hero-tagline reveal">
+      A creative ecosystem and holding company — venture-building and business development
+      at the intersection of design, media, and cultural movement.
+      <br/><em>Designing the Bond Between Vision and Reality.</em>
+    </p>
+
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Ventures</div>
       </div>
-
-      <div class="badge reveal">
-        <span class="badge-dot"></span>
-        Something is being built
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Continents</div>
       </div>
-
-      <h1 class="headline reveal" aria-label="Interior Bond">
-        <span class="line-teal">INTERIOR</span>
-        <span class="line-white">BOND</span>
-      </h1>
-
-      <p class="tagline reveal">Designing the Bond Between Vision and Reality.</p>
-
-      <div class="gold-line reveal"></div>
-
-      <p class="descriptor reveal">
-        <strong>Interior Bond</strong> is a creative ecosystem and holding company — a venture-building and business development organisation that <strong>creates, develops, and activates brands, media, and experiences.</strong>
-        The philosophy is simple: creativity is not just expression. It is <strong>execution, impact, and cultural movement.</strong>
-      </p>
-
-    </main>
-
-    <!-- MARQUEE -->
-    <div class="marquee-wrap reveal">
-      <div class="marquee-track" aria-hidden="true">
-        <span>Venture Building</span><span class="accent">✦</span>
-        <span>Creative Strategy</span><span class="accent">✦</span>
-        <span>Brand Development</span><span class="accent">✦</span>
-        <span>Cultural Intelligence</span><span class="accent">✦</span>
-        <span>Business Development</span><span class="accent">✦</span>
-        <span>Media & Entertainment</span><span class="accent">✦</span>
-        <span>Execution. Impact. Movement.</span><span class="accent">✦</span>
-        <span>Venture Building</span><span class="accent">✦</span>
-        <span>Creative Strategy</span><span class="accent">✦</span>
-        <span>Brand Development</span><span class="accent">✦</span>
-        <span>Cultural Intelligence</span><span class="accent">✦</span>
-        <span>Business Development</span><span class="accent">✦</span>
-        <span>Media & Entertainment</span><span class="accent">✦</span>
-        <span>Execution. Impact. Movement.</span><span class="accent">✦</span>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Vision</div>
       </div>
     </div>
 
-    <!-- ══ VENTURES SHOWCASE ══ -->
-    <section class="ventures-section reveal" aria-label="Interior Bond Ventures">
-      <div class="ventures-header">
-        <span class="section-label">Our Ventures</span>
-        <h2>THE ECOSYSTEM</h2>
-        <p>Drag to explore · Swipe on mobile</p>
-      </div>
-
-      <div class="ventures-track-wrap">
-        <div class="ventures-track" id="ventures-track">
-
-          <!-- 7th Creation Studio -->
-          <article class="venture-card v-7th">
-            <span class="venture-number">01</span>
-            <div>
-              <div class="venture-name">7th Creation<br/>Studio</div>
-              <div class="venture-type">Production & Fabrication</div>
-            </div>
-            <p class="venture-desc">A production and fabrication studio focused on large-format print, installation, and real-world execution. Where ideas become physical realities.</p>
-            <div class="venture-tags">
-              <span class="venture-tag">Large-Format Print</span>
-              <span class="venture-tag">Installation</span>
-              <span class="venture-tag">Fabrication</span>
-            </div>
-            <div class="venture-status">
-              <span class="venture-status-dot"></span>
-              Active
-            </div>
-          </article>
-
-          <!-- Namdah Studio -->
-          <article class="venture-card v-namdah">
-            <span class="venture-number">02</span>
-            <div>
-              <div class="venture-name">Namdah<br/>Studio</div>
-              <div class="venture-type">Culture-Led Media</div>
-            </div>
-            <p class="venture-desc">A culture-led experiential media studio that turns experiences into scalable media systems. Rooted in African culture, built for the world.</p>
-            <div class="venture-tags">
-              <span class="venture-tag">Media</span>
-              <span class="venture-tag">Experiential</span>
-              <span class="venture-tag">Content Systems</span>
-            </div>
-            <div class="venture-status">
-              <span class="venture-status-dot"></span>
-              In Development
-            </div>
-          </article>
-
-          <!-- Gift for Givers -->
-          <article class="venture-card v-gfg">
-            <span class="venture-number">03</span>
-            <div>
-              <div class="venture-name">Gift for<br/>Givers</div>
-              <div class="venture-type">Community & Giving</div>
-            </div>
-            <p class="venture-desc">What began as a simple "Thank You" has grown into a movement to inspire generosity. A platform dedicated to rewarding those who give.</p>
-            <div class="venture-tags">
-              <span class="venture-tag">Community</span>
-              <span class="venture-tag">Giving</span>
-              <span class="venture-tag">Movement</span>
-            </div>
-            <div class="venture-status">
-              <span class="venture-status-dot"></span>
-              In Development
-            </div>
-          </article>
-
-          <!-- UnionIsh App -->
-          <article class="venture-card v-union">
-            <span class="venture-number">04</span>
-            <div>
-              <div class="venture-name">UnionIsh<br/>App</div>
-              <div class="venture-type">Union Tech Platform</div>
-            </div>
-            <p class="venture-desc">Work hours tracking built specifically for union environments. Handles the complexity of collective bargaining agreements, pay grades, and contract rules that generic tools ignore.</p>
-            <div class="venture-tags">
-              <span class="venture-tag">Union Labor</span>
-              <span class="venture-tag">Time Tracking</span>
-              <span class="venture-tag">CBA Compliance</span>
-            </div>
-            <div class="venture-status">
-              <span class="venture-status-dot" style="background:var(--orange);"></span>
-              <span style="color:var(--orange);">Launching Soon</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <!-- Navigation controls -->
-      <div class="ventures-nav">
-        <button class="ventures-nav-btn" id="prev-btn" aria-label="Previous venture">&#8592;</button>
-        <div class="ventures-dots" id="ventures-dots">
-          <div class="ventures-dot active" data-index="0"></div>
-          <div class="ventures-dot" data-index="1"></div>
-          <div class="ventures-dot" data-index="2"></div>
-          <div class="ventures-dot" data-index="3"></div>
-        </div>
-        <button class="ventures-nav-btn" id="next-btn" aria-label="Next venture">&#8594;</button>
-      </div>
-    </section>
-
-    <!-- ══ PILLARS ══ -->
-    <section class="pillars-section reveal" aria-label="Interior Bond Core Pillars">
-      <div class="section-label" style="margin-bottom:2.5rem;">What We Stand On</div>
-      <div class="pillars-grid">
-
-        <div class="pillar-card">
-          <div class="pillar-icon-wrap">✦</div>
-          <div class="pillar-name">Bold<br/>Imagination</div>
-          <p class="pillar-sub">Creativity is the lifeblood — not a department</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon-wrap">◈</div>
-          <div class="pillar-name">Storytelling<br/>Power</div>
-          <p class="pillar-sub">Campaigns that move people and turn ideas into legends</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon-wrap">⟡</div>
-          <div class="pillar-name">Relentless<br/>Innovation</div>
-          <p class="pillar-sub">Constantly reinventing tools and craft to stay ahead</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon-wrap">◎</div>
-          <div class="pillar-name">Strategic<br/>Precision</div>
-          <p class="pillar-sub">Data-driven thinking that marries imagination with method</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon-wrap">❋</div>
-          <div class="pillar-name">Cultural<br/>Intelligence</div>
-          <p class="pillar-sub">Rooted in Ghana, connected to the world</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-icon-wrap">◆</div>
-          <div class="pillar-name">Excellence Without<br/>Compromise</div>
-          <p class="pillar-sub">Obsessed with quality from first brief to final delivery</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- EMAIL CAPTURE -->
-    <div class="notify-section reveal">
-      <p class="notify-label">Be the first to know when we launch</p>
-      <form class="notify-form" id="notify-form" novalidate>
-        <input type="email" class="notify-input" id="email-input" placeholder="your@email.com" aria-label="Email address" autocomplete="email" required />
-        <button type="submit" class="notify-btn">Notify Me</button>
-      </form>
-      <p class="notify-success" id="notify-success" role="status">✓ You're on the list. We'll be in touch.</p>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <p class="footer-copy">
-        © <span id="year"></span> Interior Bond LLC &amp; Interior Bond Group Ltd. All rights reserved.
-        Founded by General Ishmael.
-      </p>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="mailto:info@interiorbond.com">Contact</a>
-      </nav>
-    </footer>
-
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Venture Building</span><span class="dot">◆</span>
+      <span>Creative Strategy</span><span class="dot">◆</span>
+      <span>Brand Development</span><span class="dot">◆</span>
+      <span>Cultural Intelligence</span><span class="dot">◆</span>
+      <span>Business Development</span><span class="dot">◆</span>
+      <span>Media & Entertainment</span><span class="dot">◆</span>
+      <span>Experiential Production</span><span class="dot">◆</span>
+      <span>Design. Function. Optimize.</span><span class="dot">◆</span>
+      <span>Venture Building</span><span class="dot">◆</span>
+      <span>Creative Strategy</span><span class="dot">◆</span>
+      <span>Brand Development</span><span class="dot">◆</span>
+      <span>Cultural Intelligence</span><span class="dot">◆</span>
+      <span>Business Development</span><span class="dot">◆</span>
+      <span>Media & Entertainment</span><span class="dot">◆</span>
+      <span>Experiential Production</span><span class="dot">◆</span>
+      <span>Design. Function. Optimize.</span><span class="dot">◆</span>
+    </div>
   </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+
+        <div class="reveal">
+          <p class="section-tag">What We Are</p>
+          <h2 class="about-headline">Not an<br/>Agency.<br/><em>An Empire.</em></h2>
+          <div class="about-divider"></div>
+          <p class="about-body">
+            The name Interior Bond was born in 2006 — in a boarding school in Ghana, where a teenager sketched the outline of what he called an empire. It started as a clothing brand. But the idea was always bigger: <strong>a company that builds companies.</strong> A home for every vision, every dream, every founder who needed a partner to help them build something real.
+            <br/><br/>
+            Nearly two decades later, that idea is operational. Interior Bond is a <strong>creative ecosystem and holding company</strong> — building, developing, and activating brands, media, and experiences across industries and continents.
+            <br/><br/>
+            The philosophy has never changed: <strong>creativity is not just expression.</strong> It is execution, impact, and cultural movement. The time to build has never been better than right now.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <div class="pillar-row">
+            <div class="pillar-num">01</div>
+            <div class="pillar-title">Bold Imagination</div>
+            <div class="pillar-desc">Creativity is the lifeblood — not a department</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-num">02</div>
+            <div class="pillar-title">Storytelling Power</div>
+            <div class="pillar-desc">Ideas that move people and turn into legends</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-num">03</div>
+            <div class="pillar-title">Relentless Innovation</div>
+            <div class="pillar-desc">Constantly reinventing tools and craft</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-num">04</div>
+            <div class="pillar-title">Strategic Precision</div>
+            <div class="pillar-desc">Imagination married to method</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-num">05</div>
+            <div class="pillar-title">Cultural Intelligence</div>
+            <div class="pillar-desc">Rooted in Ghana, connected to the world</div>
+          </div>
+          <div class="pillar-row">
+            <div class="pillar-num">06</div>
+            <div class="pillar-title">Excellence Without Compromise</div>
+            <div class="pillar-desc">From first brief to final delivery</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES -->
+  <section class="ventures" id="ventures">
+    <div class="container">
+
+      <div class="ventures-header reveal">
+        <div>
+          <p class="section-tag">The Portfolio</p>
+          <h2 class="ventures-title">The<br/>Ecosystem</h2>
+        </div>
+        <p class="ventures-sub">Four operating ventures across production, media, technology, and community — each built to lead its category.</p>
+      </div>
+
+      <div class="ventures-slider">
+        <div class="ventures-track" id="venturesTrack">
+
+          <!-- Slide 1: 7th Creation -->
+          <a class="venture-slide" href="https://7thcreation.com" target="_blank" rel="noopener">
+            <div class="vs-accent gold"></div>
+            <div class="vs-left">
+              <div>
+                <div class="vs-num">01 — 7thcreation.com</div>
+                <div class="vs-name">7th Creation<br/>Studio</div>
+                <div class="vs-type">Production & Fabrication</div>
+              </div>
+              <div>
+                <div class="vs-status">
+                  <div class="vs-dot active"></div>
+                  <span style="color:var(--green)">Active</span>
+                </div>
+                <div class="vs-url">7thcreation.com ↗</div>
+              </div>
+            </div>
+            <div class="vs-right">
+              <p class="vs-desc">A production and fabrication studio focused on large-format print, installation, and real-world execution. Where ideas become physical realities — from concept to installation floor.</p>
+              <div class="vs-tags">
+                <span class="vs-tag">Large-Format Print</span>
+                <span class="vs-tag">Installation</span>
+                <span class="vs-tag">Fabrication</span>
+                <span class="vs-tag">Brand Environments</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Slide 2: Namdah -->
+          <a class="venture-slide" href="https://namdah.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+            <div class="vs-accent teal"></div>
+            <div class="vs-left">
+              <div>
+                <div class="vs-num">02 — namdah.com</div>
+                <div class="vs-name">Namdah<br/>Studio</div>
+                <div class="vs-type">Culture-Led Media</div>
+              </div>
+              <div>
+                <div class="vs-status">
+                  <div class="vs-dot dev"></div>
+                  <span style="color:var(--gold-lt)">In Development</span>
+                </div>
+                <div class="vs-url">namdah.com ↗</div>
+              </div>
+            </div>
+            <div class="vs-right">
+              <p class="vs-desc">A culture-led experiential media studio that turns experiences into scalable media systems. Rooted in African culture, built for a global audience.</p>
+              <div class="vs-tags">
+                <span class="vs-tag">Media</span>
+                <span class="vs-tag">Experiential</span>
+                <span class="vs-tag">Content Systems</span>
+                <span class="vs-tag">African Culture</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Slide 3: UnionIsh -->
+          <a class="venture-slide" href="https://unionish.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+            <div class="vs-accent ember"></div>
+            <div class="vs-left">
+              <div>
+                <div class="vs-num">03 — unionish.com</div>
+                <div class="vs-name">UnionIsh<br/>App</div>
+                <div class="vs-type">Union Tech Platform</div>
+              </div>
+              <div>
+                <div class="vs-status">
+                  <div class="vs-dot soon"></div>
+                  <span style="color:var(--ember)">Launching Soon</span>
+                </div>
+                <div class="vs-url">unionish.com ↗</div>
+              </div>
+            </div>
+            <div class="vs-right">
+              <p class="vs-desc">A systems-focused platform built specifically for union labor environments — handling the complexity of collective bargaining, pay grades, and contract compliance that generic tools ignore.</p>
+              <div class="vs-tags">
+                <span class="vs-tag">Union Labor</span>
+                <span class="vs-tag">Workforce Ops</span>
+                <span class="vs-tag">CBA Compliance</span>
+                <span class="vs-tag">Systems</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Slide 4: Gift for Givers -->
+          <div class="venture-slide" style="text-decoration:none;color:inherit;">
+            <div class="vs-accent silver"></div>
+            <div class="vs-left">
+              <div>
+                <div class="vs-num">04</div>
+                <div class="vs-name">Gift for<br/>Givers</div>
+                <div class="vs-type">Community & Giving</div>
+              </div>
+              <div>
+                <div class="vs-status">
+                  <div class="vs-dot dev"></div>
+                  <span style="color:var(--gold-lt)">In Development</span>
+                </div>
+                <div class="vs-url">Coming Soon</div>
+              </div>
+            </div>
+            <div class="vs-right">
+              <p class="vs-desc">What began as a simple "Thank You" has grown into a movement. A platform dedicated to rewarding generosity and inspiring giving at scale.</p>
+              <div class="vs-tags">
+                <span class="vs-tag">Community</span>
+                <span class="vs-tag">Giving</span>
+                <span class="vs-tag">Movement</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end track -->
+      </div><!-- end slider -->
+
+      <div class="slider-controls reveal">
+        <div class="slider-dots" id="sliderDots"></div>
+        <div class="slider-counter"><span id="sliderCurrent">01</span> / 04</div>
+        <div class="slider-arrows">
+          <button class="s-arrow" id="sPrev" aria-label="Previous">←</button>
+          <button class="s-arrow" id="sNext" aria-label="Next">→</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder" id="founder">
+    <div class="container">
+      <div class="founder-inner">
+
+        <div class="reveal">
+          <p class="founder-label">Founded By</p>
+          <h2 class="founder-name">General<br/>Ishmael</h2>
+          <p class="founder-title">Founder & Creative Director — Interior Bond</p>
+          <p class="founder-bio">
+            <strong>Ishmael Agyapong</strong> — known as General Ishmael — is a creative director, experiential production specialist, and venture builder. He has spent over a decade delivering large-scale brand environments for the world's most demanding stages — RSAC, Dreamforce, Microsoft, Apple, and Super Bowl activations.
+            <br/><br/>
+            Beyond production, he has worked alongside startups and founders — helping them launch, shape their identity, and raise capital. He understands what it takes to build from zero: the creative decisions, the operational pressure, and the moment when an idea becomes a real business.
+            <br/><br/>
+            <strong>Interior Bond is his life's work</strong> — the empire he sketched in a boarding school notebook in 2006, now being built one venture at a time.
+          </p>
+          <div class="founder-creds">
+            <span class="cred">RSAC</span>
+            <span class="cred">Dreamforce</span>
+            <span class="cred">Microsoft</span>
+            <span class="cred">Apple</span>
+            <span class="cred">Super Bowl</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="founder-quote-box">
+            <p class="founder-quote">"Most people wait for permission to build. The ones who change things never asked for it. They just started — and kept going until the world caught up."</p>
+            <p class="founder-quote-attr">— General Ishmael, Founder</p>
+          </div>
+          <div class="founder-locations">
+            <div class="loc"><div class="loc-dot"></div> Bay Area, California</div>
+            <div class="loc"><div class="loc-dot"></div> Accra, Ghana</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <p class="section-tag reveal">Work With Us</p>
+      <h2 class="cta-headline reveal">Let's Build<br/><em>Something Real</em></h2>
+      <p class="cta-sub reveal">Partnerships, ventures, and commissions — we move on what matters.</p>
+      <a href="mailto:ish@interiorbond.com" class="cta-email reveal">
+        <span>ish@interiorbond.com</span>
+        <span>↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <img src="logo-mark-transparent.png" alt="Interior Bond" width="28" height="28" />
+      <p class="footer-copy">© <span id="year"></span> Interior Bond LLC & Interior Bond Group Ltd. All rights reserved. Founded by General Ishmael.</p>
+    </div>
+    <nav class="footer-right" aria-label="Footer">
+      <a href="mailto:ish@interiorbond.com">Contact</a>
+    </nav>
+  </footer>
 
   <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Cursor glow
-    const glow = document.getElementById('cursor-glow');
-    document.addEventListener('mousemove', e => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top  = e.clientY + 'px';
+    // ─── Custom cursor ───
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function animCursor() {
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animCursor);
+    })();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.transform = 'translate(-50%,-50%) scale(1.5)'; ring.style.borderColor = 'rgba(184,150,62,0.8)'; });
+      el.addEventListener('mouseleave', () => { cur.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(184,150,62,0.5)'; });
     });
 
-    // Canvas particles
+    // ─── Particle canvas ───
     (function() {
       const canvas = document.getElementById('bg-canvas');
-      const ctx    = canvas.getContext('2d');
-      let W, H, particles;
-      const COLORS = ['#1A8C8C','#E8622A','#C9A84C','#0D5C8C'];
-
+      const ctx = canvas.getContext('2d');
+      let W, H, pts;
+      const COLORS = ['#1A8C8C','#B8963E','#C45B2A','#0D5C8C'];
       function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-
-      function initParticles() {
-        particles = Array.from({ length: 70 }, () => ({
-          x: Math.random() * W, y: Math.random() * H,
-          r: Math.random() * 1.5 + 0.3,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          color: COLORS[Math.floor(Math.random() * COLORS.length)],
-          alpha: Math.random() * 0.4 + 0.1,
+      function init() {
+        pts = Array.from({ length: 60 }, () => ({
+          x: Math.random()*W, y: Math.random()*H,
+          vx: (Math.random()-.5)*.22, vy: (Math.random()-.5)*.22,
+          r: Math.random()*1.1+.3,
+          c: COLORS[Math.floor(Math.random()*COLORS.length)],
+          a: Math.random()*.28+.06
         }));
       }
-
       function draw() {
-        ctx.clearRect(0, 0, W, H);
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < 140) {
-              ctx.beginPath();
-              ctx.strokeStyle = `rgba(26,140,140,${0.06 * (1 - dist/140)})`;
-              ctx.lineWidth = 0.5;
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.stroke();
-            }
-          }
+        ctx.clearRect(0,0,W,H);
+        for (let i=0;i<pts.length;i++) for (let j=i+1;j<pts.length;j++) {
+          const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
+          if (d<140) { ctx.beginPath(); ctx.strokeStyle=`rgba(184,150,62,${.04*(1-d/140)})`; ctx.lineWidth=.5; ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.stroke(); }
         }
-        particles.forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = p.color + Math.round(p.alpha * 255).toString(16).padStart(2, '0');
-          ctx.fill();
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < -10) p.x = W + 10;
-          if (p.x > W + 10) p.x = -10;
-          if (p.y < -10) p.y = H + 10;
-          if (p.y > H + 10) p.y = -10;
+        pts.forEach(p => {
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle=p.c+Math.round(p.a*255).toString(16).padStart(2,'0'); ctx.fill();
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
+          if(p.y<-10)p.y=H+10; if(p.y>H+10)p.y=-10;
         });
         requestAnimationFrame(draw);
       }
-
-      window.addEventListener('resize', () => { resize(); initParticles(); });
-      resize(); initParticles(); draw();
+      window.addEventListener('resize',()=>{resize();init();});
+      resize(); init(); draw();
     })();
 
-    // Scroll reveal
+    // ─── Logo 3D tilt on mouse ───
+    const heroLogo = document.getElementById('heroLogo');
+    document.addEventListener('mousemove', e => {
+      if (!heroLogo) return;
+      const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+      const dx = (e.clientX - cx) / cx, dy = (e.clientY - cy) / cy;
+      heroLogo.style.transform = `perspective(600px) rotateY(${dx * 12}deg) rotateX(${-dy * 12}deg)`;
+    });
+
+    // ─── BG word parallax ───
+    const bgWord = document.getElementById('heroBgWord');
+    document.addEventListener('mousemove', e => {
+      if (!bgWord) return;
+      const cx = window.innerWidth/2, cy = window.innerHeight/2;
+      const dx = (e.clientX-cx)/cx, dy = (e.clientY-cy)/cy;
+      bgWord.style.transform = `translate(calc(-50% + ${dx*18}px), calc(-50% + ${dy*18}px))`;
+    });
+
+    // ─── Nav shrink on scroll ───
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+    // ─── Ventures slider ───
+    (function() {
+      const track = document.getElementById('venturesTrack');
+      const dotsEl = document.getElementById('sliderDots');
+      const counterEl = document.getElementById('sliderCurrent');
+      const slides = track ? Array.from(track.querySelectorAll('.venture-slide')) : [];
+      let cur = 0, timer;
+      if (!slides.length) return;
+
+      slides.forEach((_,i) => {
+        const d = document.createElement('div');
+        d.className = 's-dot' + (i===0?' active':'');
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+      });
+
+      function go(idx) {
+        cur = (idx + slides.length) % slides.length;
+        track.style.transform = `translateX(-${cur*100}%)`;
+        document.querySelectorAll('.s-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+        counterEl.textContent = String(cur+1).padStart(2,'0');
+        clearInterval(timer); timer = setInterval(() => go(cur+1), 6000);
+      }
+
+      document.getElementById('sPrev').addEventListener('click', () => go(cur-1));
+      document.getElementById('sNext').addEventListener('click', () => go(cur+1));
+
+      // Swipe
+      let tx = 0;
+      track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+      track.addEventListener('touchend', e => { const d=tx-e.changedTouches[0].clientX; if(Math.abs(d)>50) go(d>0?cur+1:cur-1); });
+
+      timer = setInterval(() => go(cur+1), 6000);
+    })();
+
+    // ─── Scroll reveal ───
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 100);
-          observer.unobserve(entry.target);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-    setTimeout(() => { reveals.forEach((el, i) => { setTimeout(() => el.classList.add('visible'), i * 120); }); }, 100);
+    }, { threshold: 0.08 });
+    reveals.forEach(el => obs.observe(el));
 
-    // Logo 3D tilt
-    const logoWrap = document.getElementById('logo-wrap');
-    logoWrap.addEventListener('mousemove', e => {
-      const rect = logoWrap.getBoundingClientRect();
-      const dx = (e.clientX - rect.left - rect.width/2) / (rect.width/2);
-      const dy = (e.clientY - rect.top  - rect.height/2) / (rect.height/2);
-      logoWrap.style.transform = `perspective(600px) rotateX(${-dy*15}deg) rotateY(${dx*15}deg)`;
-    });
-    logoWrap.addEventListener('mouseleave', () => { logoWrap.style.transform = ''; });
-
-    // Email form
-    const form = document.getElementById('notify-form');
-    const success = document.getElementById('notify-success');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const email = document.getElementById('email-input').value;
-      if (!email || !email.includes('@')) return;
-      form.style.display = 'none';
-      success.style.display = 'block';
-    });
-
-    // ── Ventures drag-to-scroll + nav ──
-    const track = document.getElementById('ventures-track');
-    const dots  = document.querySelectorAll('.ventures-dot');
-    const cards = track.querySelectorAll('.venture-card');
-    const cardW = () => cards[0].offsetWidth + 24; // card + gap
-
-    let isDragging = false, startX = 0, scrollLeft = 0;
-
-    track.addEventListener('mousedown', e => {
-      isDragging = true;
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.cursor = 'grabbing';
-    });
-    track.addEventListener('mouseleave', () => { isDragging = false; track.style.cursor = 'grab'; });
-    track.addEventListener('mouseup',    () => { isDragging = false; track.style.cursor = 'grab'; });
-    track.addEventListener('mousemove',  e => {
-      if (!isDragging) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      track.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    });
-
-    // Update dots on scroll
-    track.addEventListener('scroll', () => {
-      const idx = Math.round(track.scrollLeft / cardW());
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    });
-
-    // Dot click
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const idx = parseInt(dot.dataset.index);
-        track.scrollTo({ left: idx * cardW(), behavior: 'smooth' });
+    // Immediate hero reveal
+    setTimeout(() => {
+      document.querySelectorAll('.hero .reveal').forEach((el,i) => {
+        setTimeout(() => el.classList.add('visible'), 200 + i*150);
       });
-    });
-
-    // Arrow buttons
-    document.getElementById('prev-btn').addEventListener('click', () => {
-      track.scrollBy({ left: -cardW(), behavior: 'smooth' });
-    });
-    document.getElementById('next-btn').addEventListener('click', () => {
-      track.scrollBy({ left: cardW(), behavior: 'smooth' });
-    });
+    }, 100);
   </script>
 
 </body>
