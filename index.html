@@ -710,34 +710,150 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 900px) {
-      body { cursor: auto; }
+      body { cursor: auto; overflow-x: hidden; }
       .cursor, .cursor-ring { display: none; }
-      nav { padding: 1.25rem 1.5rem; }
+
+      /* Nav */
+      nav { padding: 1rem 1.25rem; }
+      nav.scrolled { padding: 0.75rem 1.25rem; }
       .nav-link { display: none; }
-      .hero { padding: 7rem 1.5rem 4rem; }
-      .hero-bg-word { font-size: 8rem; }
-      .hero-stats { gap: 2.5rem; }
-      .container { padding: 0 1.5rem; }
+      .nav-cta { padding: 0.4rem 0.9rem; font-size: 0.6rem; }
+
+      /* Container */
+      .container { padding: 0 1.25rem; }
+
+      /* Hero */
+      .hero {
+        min-height: calc(100svh - 0px);
+        padding: 6rem 1.25rem 3.5rem;
+        justify-content: flex-start;
+        padding-top: 5.5rem;
+      }
+      .hero-bg-word {
+        font-size: clamp(5rem, 22vw, 8rem);
+        opacity: 0.6;
+      }
+      .hero-logo img { width: clamp(80px, 22vw, 120px); }
+      .hero-logo { margin-bottom: 1rem; }
+      .hero-name { font-size: clamp(3rem, 14vw, 5rem); margin-bottom: 1rem; }
+      .hero-tagline { font-size: 0.95rem; max-width: 100%; margin-bottom: 2rem; }
+      .hero-eyebrow { gap: 0.6rem; margin-bottom: 0.75rem; }
+      .hero-stats { gap: 2rem; flex-wrap: wrap; justify-content: center; }
+      .stat-num { font-size: 2rem; }
+
+      /* Sections */
+      .about { padding: 5rem 0; }
+      .ventures { padding: 5rem 0 4rem; }
+      .founder { padding: 5rem 0; }
+      .contact-cta { padding: 5rem 0; }
+
+      /* About */
       .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-headline { font-size: clamp(2.5rem, 10vw, 4rem); }
+      .about-body { font-size: 1rem; }
+
+      /* Pillars — fix 3-col overflow */
+      .pillar-row {
+        grid-template-columns: 2rem 1fr;
+        gap: 0.75rem;
+      }
+      .pillar-desc { display: none; }
+      .pillar-title { font-size: 1rem; }
+
+      /* Ventures header */
       .ventures-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .ventures-sub { text-align: left; max-width: none; }
-      /* 3D carousel mobile */
-      .carousel-stage { height: 400px; perspective: 800px; }
-      .vc-card { width: 300px; height: 380px; margin-top: -190px; margin-left: -150px; }
-      .vc-card.pos-n1 { transform: translateX(-220px) translateZ(-120px) rotateY(42deg) scale(0.85); }
-      .vc-card.pos-1  { transform: translateX(220px)  translateZ(-120px) rotateY(-42deg) scale(0.85); }
-      .vc-card.pos-n2 { transform: translateX(-380px) translateZ(-280px) rotateY(62deg) scale(0.68); }
-      .vc-card.pos-2  { transform: translateX(380px)  translateZ(-280px) rotateY(-62deg) scale(0.68); }
-      .vc-body { padding: 1.8rem 2rem; }
+      .ventures-sub { text-align: left; max-width: none; font-size: 0.65rem; }
+      .ventures-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+
+      /* ─── Carousel: single-card flat mode on mobile ─── */
+      .carousel-stage {
+        height: auto;
+        min-height: 460px;
+        perspective: none;
+        overflow: hidden;
+        touch-action: pan-y;
+      }
+      .carousel-track {
+        transform-style: flat;
+        position: relative;
+      }
+      /* All cards hidden by default on mobile */
+      .vc-card {
+        position: relative;
+        top: auto; left: auto;
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+        min-height: 420px;
+        margin: 0 auto;
+        display: none;
+        transform: none !important;
+        opacity: 1 !important;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      }
+      /* Only the active card is shown */
+      .vc-card.pos-0 {
+        display: block;
+      }
+      .vc-card:not(.pos-0) {
+        display: none;
+      }
+      /* Restore hidden content on active card */
+      .vc-card.pos-0 .vc-desc { display: -webkit-box; -webkit-line-clamp: 4; }
+      .vc-card.pos-0 .vc-tags { display: flex; }
+
+      /* Fix card inner layout for auto-height on mobile */
+      .vc-card {
+        display: flex;
+        flex-direction: column;
+      }
+      .vc-card.pos-0 { display: flex; }
+      .vc-card:not(.pos-0) { display: none; }
+      .vc-hero {
+        position: relative;
+        inset: auto;
+        height: 180px;
+        flex-shrink: 0;
+      }
+      .vc-body {
+        position: relative;
+        bottom: auto; left: auto; right: auto;
+        padding: 1.75rem 1.5rem;
+        flex: 1;
+      }
+      .vc-accent {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+      }
       .vc-name { font-size: 1.8rem; }
-      .carousel-controls { gap: 1.5rem; }
+
+      /* Carousel controls */
+      .carousel-controls { gap: 1.25rem; margin-top: 2rem; }
+      .c-arrow { width: 42px; height: 42px; font-size: 1rem; }
+
+      /* Founder */
       .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .founder-name { font-size: clamp(3rem, 12vw, 5rem); }
+      .founder-bio { font-size: 1rem; }
+      .founder-quote-box { padding: 2rem; }
+      .founder-quote { font-size: 1.1rem; }
+
+      /* CTA */
+      .cta-headline { font-size: clamp(2.5rem, 10vw, 4rem); }
+
+      /* Footer */
+      footer { padding: 2rem 1.25rem; flex-direction: column; gap: 1rem; text-align: center; }
       .footer-right { gap: 1.5rem; }
-      .about { padding: 6rem 0; }
-      .ventures { padding: 6rem 0; }
-      .founder { padding: 6rem 0; }
-      .contact-cta { padding: 6rem 0; }
+      .footer-left { flex-direction: column; gap: 0.5rem; }
+    }
+
+    /* Extra small phones */
+    @media (max-width: 400px) {
+      .hero-stats { gap: 1.25rem; }
+      .stat-num { font-size: 1.75rem; }
+      .vc-card { max-width: 100%; }
+      .founder-creds { gap: 0.35rem; }
+      .cred { font-size: 0.5rem; padding: 0.25rem 0.5rem; }
     }
   </style>
 </head>
@@ -798,8 +914,8 @@
         <div class="stat-label">Continents</div>
       </div>
       <div class="stat">
-        <div class="stat-num">2006</div>
-        <div class="stat-label">Vision Born</div>
+        <div class="stat-num">1</div>
+        <div class="stat-label">Vision</div>
       </div>
     </div>
 
@@ -1211,12 +1327,23 @@
       document.getElementById('cPrev').addEventListener('click', () => go(active-1));
       document.getElementById('cNext').addEventListener('click', () => go(active+1));
 
-      // Touch swipe
-      let tx = 0;
-      stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+      // Touch swipe — horizontal only, don't fight vertical scroll
+      let tx = 0, ty = 0, swiping = false;
+      stage.addEventListener('touchstart', e => {
+        tx = e.touches[0].clientX;
+        ty = e.touches[0].clientY;
+        swiping = false;
+      }, {passive:true});
+      stage.addEventListener('touchmove', e => {
+        const dx = Math.abs(e.touches[0].clientX - tx);
+        const dy = Math.abs(e.touches[0].clientY - ty);
+        if (dx > dy && dx > 8) { swiping = true; e.preventDefault(); }
+      }, {passive:false});
       stage.addEventListener('touchend', e => {
+        if (!swiping) return;
         const d = tx - e.changedTouches[0].clientX;
-        if (Math.abs(d) > 50) go(d > 0 ? active+1 : active-1);
+        if (Math.abs(d) > 40) go(d > 0 ? active+1 : active-1);
+        swiping = false;
       });
 
       // Init
