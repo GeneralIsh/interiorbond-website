@@ -183,6 +183,7 @@
       text-align: center;
       overflow: hidden;
       padding: 8rem 2rem 4rem;
+      isolation: isolate;
     }
 
     /* Giant BG word */
@@ -276,26 +277,13 @@
       color: var(--dim); margin-top: 0.25rem;
     }
 
-    .scroll-hint {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    }
-    .scroll-hint span { font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim2); }
-    .scroll-line {
-      width: 1px; height: 48px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: scroll-pulse 2s ease-in-out infinite;
-    }
-    @keyframes scroll-pulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50%       { opacity: 1; transform: scaleY(1.15); }
-    }
+
 
     /* ─── MARQUEE ─── */
     .marquee-wrap {
-      position: relative; z-index: 2; width: 100%; overflow: hidden;
+      position: relative; z-index: 3; width: 100%; overflow: hidden;
       border-top: 1px solid var(--dim2); border-bottom: 1px solid var(--dim2);
-      padding: 1rem 0; background: rgba(184,150,62,0.025);
+      padding: 1rem 0; background: var(--bg);
     }
     .marquee-track {
       display: flex; gap: 4rem;
@@ -486,13 +474,28 @@
       background-size: cover; background-position: center;
       transition: opacity 0.6s;
     }
+    /* Gradient fallbacks per venture */
+    .vc-hero.v-7th   { background: linear-gradient(135deg, #0D2B1A 0%, #0A1F2E 50%, #06131F 100%); }
+    .vc-hero.v-namdah { background: linear-gradient(135deg, #1A1206 0%, #2A1E08 50%, #0D0A06 100%); }
+    .vc-hero.v-union  { background: linear-gradient(135deg, #1A0D06 0%, #2A1408 50%, #120806 100%); }
+    .vc-hero.v-gfg    { background: linear-gradient(135deg, #0A0D1A 0%, #101828 50%, #06080F 100%); }
+
     .vc-hero::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(6,13,31,0.3) 0%,
-        rgba(6,13,31,0.55) 40%,
-        rgba(6,13,31,0.92) 100%);
+        rgba(6,13,31,0.2) 0%,
+        rgba(6,13,31,0.5) 40%,
+        rgba(6,13,31,0.95) 100%);
+    }
+
+    /* Geometric accent pattern on hero bg */
+    .vc-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 70% 30%, rgba(184,150,62,0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(26,140,140,0.06) 0%, transparent 50%);
+      z-index: 1;
     }
 
     .vc-accent {
@@ -795,15 +798,11 @@
         <div class="stat-label">Continents</div>
       </div>
       <div class="stat">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Vision</div>
+        <div class="stat-num">2006</div>
+        <div class="stat-label">Vision Born</div>
       </div>
     </div>
 
-    <div class="scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
   </section>
 
   <!-- MARQUEE -->
@@ -901,7 +900,7 @@
 
           <!-- Card 0: 7th Creation -->
           <a class="vc-card" data-idx="0" href="https://7thcreation.com" target="_blank" rel="noopener">
-            <div class="vc-hero" style="background-image:url('hero-7thcreation.jpg')"></div>
+            <div class="vc-hero v-7th" style="background-image:url('hero-7thcreation.jpg')"></div>
             <div class="vc-accent" style="background:linear-gradient(90deg,#1EC88C,#2ABFBF)"></div>
             <div class="vc-body">
               <div class="vc-num">01 — 7thcreation.com</div>
@@ -926,7 +925,7 @@
 
           <!-- Card 1: Namdah -->
           <a class="vc-card" data-idx="1" href="https://namdah.com" target="_blank" rel="noopener">
-            <div class="vc-hero" style="background-image:url('hero-namdah.jpg')"></div>
+            <div class="vc-hero v-namdah" style="background-image:url('hero-namdah.jpg')"></div>
             <div class="vc-accent" style="background:linear-gradient(90deg,#D4AE5A,#E8C870)"></div>
             <div class="vc-body">
               <div class="vc-num">02 — namdah.com</div>
@@ -951,7 +950,7 @@
 
           <!-- Card 2: UnionIsh -->
           <a class="vc-card" data-idx="2" href="https://unionish.com" target="_blank" rel="noopener">
-            <div class="vc-hero" style="background-image:url('hero-unionish.jpg')"></div>
+            <div class="vc-hero v-union" style="background-image:url('hero-unionish.jpg')"></div>
             <div class="vc-accent" style="background:linear-gradient(90deg,#C45B2A,#E07840)"></div>
             <div class="vc-body">
               <div class="vc-num">03 — unionish.com</div>
@@ -976,7 +975,7 @@
 
           <!-- Card 3: Gift for Givers -->
           <a class="vc-card" data-idx="3" href="https://giftforgivers.com" target="_blank" rel="noopener">
-            <div class="vc-hero" style="background-image:url('hero-giftforgivers.jpg')"></div>
+            <div class="vc-hero v-gfg" style="background-image:url('hero-giftforgivers.jpg')"></div>
             <div class="vc-accent" style="background:linear-gradient(90deg,#C86428,#E07840)"></div>
             <div class="vc-body">
               <div class="vc-num">04 — giftforgivers.com</div>
