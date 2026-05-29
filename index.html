@@ -762,6 +762,54 @@
       80%     { transform: translate(-8px,6px) rotate(-5deg); }
     }
 
+    /* ─── INFINITY SYMBOL ACCENTS ─── */
+    .geo-inf {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      font-size: 3.5rem;
+      font-weight: 100;
+      line-height: 1;
+      opacity: 0;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(184,150,62,0.13);
+      letter-spacing: 0;
+      user-select: none;
+    }
+    .geo-inf-1 {
+      top: 12%; right: 18%;
+      font-size: 4rem;
+      -webkit-text-stroke: 1px rgba(184,150,62,0.10);
+      animation: geoFadeIn 3s ease 1.2s forwards, infDrift1 22s ease-in-out 4s infinite;
+    }
+    .geo-inf-2 {
+      bottom: 30%; right: 10%;
+      font-size: 2.8rem;
+      -webkit-text-stroke: 1px rgba(26,140,140,0.12);
+      animation: geoFadeIn 3s ease 1.8s forwards, infDrift2 26s ease-in-out 4s infinite;
+    }
+    .geo-inf-3 {
+      top: 55%; left: 5%;
+      font-size: 5rem;
+      -webkit-text-stroke: 1px rgba(184,150,62,0.07);
+      animation: geoFadeIn 3s ease 2.2s forwards, infDrift3 30s ease-in-out 4s infinite;
+    }
+    @keyframes infDrift1 {
+      0%,100% { transform: translate(0,0) rotate(-3deg) scale(1); }
+      30%     { transform: translate(-10px,8px) rotate(2deg) scale(1.04); }
+      65%     { transform: translate(8px,-6px) rotate(-5deg) scale(0.97); }
+    }
+    @keyframes infDrift2 {
+      0%,100% { transform: translate(0,0) rotate(5deg) scale(1); }
+      40%     { transform: translate(12px,-10px) rotate(-2deg) scale(1.06); }
+      75%     { transform: translate(-6px,8px) rotate(8deg) scale(0.95); }
+    }
+    @keyframes infDrift3 {
+      0%,100% { transform: translate(0,0) rotate(0deg) scale(1); }
+      35%     { transform: translate(6px,12px) rotate(-4deg) scale(1.03); }
+      70%     { transform: translate(-10px,-6px) rotate(3deg) scale(0.98); }
+    }
+
     /* ─── CARD HOVER TILT ─── */
     .vc-card.pos-0 {
       transform-style: preserve-3d;
@@ -875,6 +923,10 @@
     <div class="geo-accent geo-1" aria-hidden="true"></div>
     <div class="geo-accent geo-2" aria-hidden="true"></div>
     <div class="geo-accent geo-3" aria-hidden="true"></div>
+    <!-- Infinity symbol accents — logo is 3 infinity symbols locked together -->
+    <div class="geo-inf geo-inf-1" aria-hidden="true">∞</div>
+    <div class="geo-inf geo-inf-2" aria-hidden="true">∞</div>
+    <div class="geo-inf geo-inf-3" aria-hidden="true">∞</div>
 
     <div class="hero-logo reveal" id="heroLogo">
       <img src="logo-mark-transparent.png" alt="Interior Bond mark" loading="eager" />
