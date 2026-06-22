@@ -1,0 +1,20 @@
+Asset extraction findings as of 2026-06-22
+
+Downloaded successfully:
+- Namdah: /home/ubuntu/interiorbond-landing/hero-namdah.png — high quality branded OG image, 2752x1536, dark background with large NAMDAH wordmark and star mark.
+- Gift for Givers: /home/ubuntu/interiorbond-landing/hero-gfg.png — usable OG image, 1200x630, cream background with headline and navigation.
+- UnionIsh: /home/ubuntu/interiorbond-landing/hero-union.png — usable OG image, 1200x630, dark hero with logo and headline.
+
+Low-quality / not usable yet:
+- 7th Creation: /home/ubuntu/interiorbond-landing/hero-7th.webp — only 190x190 logo asset from Squarespace OG metadata, not a real hero image.
+- Love by Badaria: /home/ubuntu/interiorbond-landing/hero-badaria.png — only 128x128 icon/logo asset, not a real hero image.
+
+Observed source hints:
+- 7th Creation live page uses a video hero in the header, so static OG metadata falls back to a small logo instead of a usable scene image.
+- Love by Badaria markdown exposed multiple large wedding images from CloudFront in page content; these are better candidates than the small icon/og logo.
+- Gift for Givers and UnionIsh OG images are composition-heavy but still on-brand and usable for card backgrounds if darkened/cropped.
+- Namdah OG image is strong but logo-heavy; may need dark overlay to preserve card text legibility.
+
+Next extraction targets:
+- 7th Creation: inspect page source / embedded video poster / internal images for a real large-format production image.
+- Love by Badaria: use one of the exposed wedding hero images from CloudFront instead of the tiny logo asset.
