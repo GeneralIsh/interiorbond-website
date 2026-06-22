@@ -867,17 +867,53 @@
       .ventures-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .ventures-sub { text-align: left; max-width: none; }
 
-      /* 3D carousel — clip overflow at the section level, tighten card offsets to fit phone width */
+      /* 3D carousel — single card mode on mobile, no side cards */
       .ventures { overflow: hidden; }
-      .carousel-stage { height: 400px; perspective: 800px; }
-      .vc-card { width: 260px; height: 360px; margin-top: -180px; margin-left: -130px; }
-      .vc-card.pos-n1 { transform: translateX(-160px) translateZ(-120px) rotateY(42deg) scale(0.85); }
-      .vc-card.pos-1  { transform: translateX(160px)  translateZ(-120px) rotateY(-42deg) scale(0.85); }
-      .vc-card.pos-n2 { transform: translateX(-290px) translateZ(-280px) rotateY(62deg) scale(0.68); }
-      .vc-card.pos-2  { transform: translateX(290px)  translateZ(-280px) rotateY(-62deg) scale(0.68); }
-      .vc-body { padding: 1.8rem 1.5rem; }
+      .carousel-stage {
+        height: auto;
+        perspective: none;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+      }
+      .carousel-track { position: static; width: 100%; }
+      .vc-card {
+        position: static;
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+        min-height: 460px;
+        margin: 0 auto;
+        transform: none !important;
+        opacity: 0;
+        pointer-events: none;
+        display: none;
+        transition: opacity 0.4s ease;
+      }
+      .vc-card.pos-0 {
+        opacity: 1;
+        pointer-events: auto;
+        display: block;
+        transform: none !important;
+      }
+      /* Card inner layout — stack vertically on mobile */
+      .vc-hero {
+        position: relative;
+        height: 200px;
+        width: 100%;
+      }
+      .vc-body {
+        position: relative;
+        padding: 1.8rem 1.5rem 2rem;
+        background: var(--card-bg, #0d1117);
+      }
       .vc-name { font-size: 1.6rem; }
-      .carousel-controls { gap: 1.5rem; }
+      .vc-desc { display: block !important; -webkit-line-clamp: 4; }
+      .vc-tags { display: flex !important; }
+      .vc-accent { display: none; }
+      .carousel-controls { gap: 1.5rem; margin-top: 1.5rem; }
 
       /* Founder */
       .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
