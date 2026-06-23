@@ -22,6 +22,51 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
+  <!-- ─── Google Analytics 4 ─── -->
+  <!-- GA4: Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+      page_title: document.title,
+      page_location: window.location.href,
+      send_page_view: true
+    });
+  </script>
+
+  <!-- ─── Meta (Facebook) Pixel ─── -->
+  <!-- Meta Pixel: Replace YOUR_PIXEL_ID with your Pixel ID from business.facebook.com/events/manager -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+
+  <!-- ─── Hotjar ─── -->
+  <!-- Hotjar: Replace YOUR_HOTJAR_ID with your Site ID from hotjar.com -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -792,6 +837,96 @@
     }
     .cta-email:hover { border-color: var(--gold); letter-spacing: 0.35em; }
 
+    /* ─── EMAIL CAPTURE ─── */
+    .email-capture {
+      background: #040A18;
+      border-top: 1px solid rgba(184,150,62,0.12);
+      border-bottom: 1px solid rgba(184,150,62,0.08);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .email-capture::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(184,150,62,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ec-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .ec-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .ec-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      line-height: 1.0;
+      color: var(--bone);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .ec-sub {
+      font-size: 0.85rem;
+      color: var(--dim);
+      line-height: 1.6;
+      margin-bottom: 2.2rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ec-form {
+      display: flex;
+      gap: 0;
+      max-width: 440px;
+      margin: 0 auto 1rem;
+      border: 1px solid rgba(184,150,62,0.25);
+      border-radius: 3px;
+      overflow: hidden;
+      background: rgba(6,13,31,0.8);
+    }
+    .ec-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0.9rem 1.2rem;
+      font-size: 0.82rem;
+      color: var(--bone);
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    .ec-input::placeholder { color: rgba(237,233,224,0.3); }
+    .ec-btn {
+      background: var(--gold);
+      color: #060D1F;
+      border: none;
+      padding: 0.9rem 1.4rem;
+      font-size: 0.65rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: background 0.25s;
+      white-space: nowrap;
+    }
+    .ec-btn:hover { background: var(--gold-lt); }
+    .ec-fine {
+      font-size: 0.72rem;
+      color: rgba(237,233,224,0.3);
+      letter-spacing: 0.06em;
+      min-height: 1.2em;
+    }
+    .ec-fine.success { color: var(--gold); }
+
     /* ─── FOOTER ─── */
     footer {
       position: relative; z-index: 2;
@@ -1541,6 +1676,20 @@
     </div>
   </section>
 
+  <!-- ─── EMAIL CAPTURE ─── -->
+  <section class="email-capture" id="stay-connected">
+    <div class="ec-inner">
+      <div class="ec-label">STAY IN THE LOOP</div>
+      <h2 class="ec-heading">Built in public.<br/>Follow the build.</h2>
+      <p class="ec-sub">New ventures, drops, and moves from Interior Bond — direct to your inbox. No noise.</p>
+      <form class="ec-form" id="ecForm" onsubmit="handleEmailCapture(event)">
+        <input class="ec-input" type="email" id="ecEmail" placeholder="your@email.com" required autocomplete="email" />
+        <button class="ec-btn" type="submit">JOIN THE LIST</button>
+      </form>
+      <p class="ec-fine" id="ecMsg"></p>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-left">
@@ -1706,10 +1855,31 @@
         timer = setInterval(() => go(active+1), 6000);
       }
 
-      // Click side cards to navigate; active card follows link
+      // Click side cards to navigate; active card opens link in new tab
       cards.forEach((card, i) => {
         card.addEventListener('click', e => {
-          if (i !== active) { e.preventDefault(); go(i); }
+          if (i !== active) {
+            e.preventDefault();
+            go(i);
+          } else {
+            // Active card — open venture site in new tab
+            const href = card.getAttribute('href');
+            if (href) {
+              e.preventDefault();
+              // Track click in GA4
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'venture_click', {
+                  venture_name: card.querySelector('.vc-name') ? card.querySelector('.vc-name').textContent.trim().replace(/\s+/g,' ') : href,
+                  venture_url: href
+                });
+              }
+              // Track in Meta Pixel
+              if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', { content_name: href });
+              }
+              window.open(href, '_blank', 'noopener,noreferrer');
+            }
+          }
         });
       });
 
@@ -1779,6 +1949,100 @@
       });
     }, { threshold: 0.08 });
     revealEls.forEach(el => obs.observe(el));
+
+    // ─── Email capture handler ───
+    window.handleEmailCapture = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('ecEmail').value.trim();
+      const msg = document.getElementById('ecMsg');
+      if (!email) return;
+
+      // Track in GA4
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'email_signup', {
+          method: 'email_capture_form',
+          email_domain: email.split('@')[1] || 'unknown'
+        });
+      }
+      // Track in Meta Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: 'email_capture' });
+      }
+
+      // Store locally (localStorage as fallback — replace with your email service endpoint)
+      try {
+        const leads = JSON.parse(localStorage.getItem('ib_leads') || '[]');
+        leads.push({
+          email,
+          ts: new Date().toISOString(),
+          ref: document.referrer || 'direct',
+          ua: navigator.userAgent,
+          tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          lang: navigator.language,
+          screen: screen.width + 'x' + screen.height,
+          path: location.pathname
+        });
+        localStorage.setItem('ib_leads', JSON.stringify(leads));
+      } catch(_) {}
+
+      // Submit to a free Formspree endpoint — replace YOUR_FORM_ID
+      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email,
+          referrer: document.referrer || 'direct',
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          language: navigator.language,
+          screen: screen.width + 'x' + screen.height,
+          userAgent: navigator.userAgent,
+          timestamp: new Date().toISOString()
+        })
+      }).then(r => {
+        if (r.ok) {
+          msg.textContent = 'You\'re in. We\'ll be in touch.';
+          msg.className = 'ec-fine success';
+          document.getElementById('ecEmail').value = '';
+        } else {
+          msg.textContent = 'Something went wrong. Try again.';
+          msg.className = 'ec-fine';
+        }
+      }).catch(() => {
+        // Even if fetch fails, we stored locally
+        msg.textContent = 'You\'re in. We\'ll be in touch.';
+        msg.className = 'ec-fine success';
+        document.getElementById('ecEmail').value = '';
+      });
+    };
+
+    // ─── Passive visitor data collection ───
+    (function() {
+      const visitorData = {
+        ts: new Date().toISOString(),
+        ref: document.referrer || 'direct',
+        ua: navigator.userAgent,
+        lang: navigator.language,
+        tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        screen: screen.width + 'x' + screen.height,
+        path: location.pathname,
+        utm_source: new URLSearchParams(location.search).get('utm_source') || null,
+        utm_medium: new URLSearchParams(location.search).get('utm_medium') || null,
+        utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || null,
+        utm_content: new URLSearchParams(location.search).get('utm_content') || null
+      };
+      // Store in sessionStorage for the session
+      try { sessionStorage.setItem('ib_visitor', JSON.stringify(visitorData)); } catch(_) {}
+      // Fire GA4 custom event with visitor context
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'visitor_context', {
+          visitor_tz: visitorData.tz,
+          visitor_lang: visitorData.lang,
+          visitor_ref: visitorData.ref,
+          utm_source: visitorData.utm_source,
+          utm_campaign: visitorData.utm_campaign
+        });
+      }
+    })();
 
     // Immediate hero reveal
     setTimeout(() => {
