@@ -22,51 +22,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
-  <!-- ─── Google Analytics 4 ─── -->
-  <!-- GA4: Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', {
-      page_title: document.title,
-      page_location: window.location.href,
-      send_page_view: true
-    });
-  </script>
-
-  <!-- ─── Meta (Facebook) Pixel ─── -->
-  <!-- Meta Pixel: Replace YOUR_PIXEL_ID with your Pixel ID from business.facebook.com/events/manager -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-  /></noscript>
-
-  <!-- ─── Hotjar ─── -->
-  <!-- Hotjar: Replace YOUR_HOTJAR_ID with your Site ID from hotjar.com -->
-  <script>
-    (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -309,22 +264,55 @@
     }
 
     .hero-stats {
-      display: flex; gap: 4rem; justify-content: center;
+      display: flex; gap: 0; justify-content: center;
       position: relative; z-index: 4;
+      border: 1px solid var(--dim2);
+      margin-top: 1rem;
     }
-    .stat { text-align: center; }
+    .stat {
+      text-align: center;
+      padding: 1.5rem 3.5rem;
+      border-right: 1px solid var(--dim2);
+      transition: background 0.3s;
+    }
+    .stat:last-child { border-right: none; }
+    .stat:hover { background: rgba(184,150,62,0.03); }
     .stat-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem; line-height: 1; color: var(--bone); letter-spacing: 0.05em;
+      font-size: 2.8rem; line-height: 1; color: var(--bone); letter-spacing: 0.05em;
     }
     .stat-label {
-      font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--dim); margin-top: 0.25rem;
+      font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dim); margin-top: 0.3rem;
     }
 
 
 
-    /* ─── MARQUEE ─── */
+    /* Hero scroll cue */
+    .hero-scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      z-index: 4; opacity: 0;
+      animation: fadein 1s ease 2s forwards;
+    }
+    .hero-scroll-cue span {
+      font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--dim2);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Hero tagline italic em */
+    .hero-tagline em { color: var(--gold); font-style: italic; }
     .marquee-wrap {
       position: relative; z-index: 3; width: 100%; overflow: hidden;
       border-top: 1px solid var(--dim2); border-bottom: 1px solid var(--dim2);
@@ -340,6 +328,41 @@
     }
     .marquee-track .dot { color: var(--gold); }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── PHILOSOPHY STRIP ─── */
+    .philosophy-strip {
+      position: relative; z-index: 2;
+      padding: 4rem 0;
+      border-top: 1px solid var(--dim2);
+      border-bottom: 1px solid var(--dim2);
+      overflow: hidden;
+    }
+    .philosophy-strip-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem;
+    }
+    .phil-word {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: 0.06em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(237,233,224,0.15);
+      transition: color 0.4s, -webkit-text-stroke 0.4s;
+      cursor: default;
+      white-space: nowrap;
+    }
+    .phil-word:hover {
+      color: var(--bone);
+      -webkit-text-stroke: 1px transparent;
+    }
+    .phil-sep {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); opacity: 0.4; flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      .philosophy-strip { padding: 2.5rem 0; }
+      .phil-word { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+    }
 
     /* ─── ABOUT ─── */
     .about {
@@ -617,6 +640,21 @@
       position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
     }
 
+    /* Brand icon — positioned relative to card, above hero gradient and body */
+    .vc-brand-icon {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      z-index: 5;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .vc-card:hover .vc-brand-icon { opacity: 1; }
+    .vc-card:not(.pos-0) .vc-brand-icon { opacity: 0.5; }
+
     .vc-body {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 2.5rem 2.8rem;
@@ -750,63 +788,154 @@
     /* ─── FOUNDER ─── */
     .founder {
       position: relative; z-index: 2;
-      padding: 10rem 0;
+      padding: 10rem 0 12rem;
       border-top: 1px solid var(--dim2);
-    }
-    .founder-inner {
-      display: grid; grid-template-columns: 1fr 1.2fr; gap: 8rem; align-items: center;
+      overflow: hidden;
     }
 
+    /* Large ghost letterform behind the section */
+    .founder::before {
+      content: 'GI';
+      position: absolute;
+      right: -2rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(16rem, 30vw, 28rem);
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(184,150,62,0.04);
+      pointer-events: none; user-select: none;
+      z-index: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .founder-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+    }
+
+    /* LEFT COLUMN */
     .founder-label {
       font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 1.5rem;
     }
     .founder-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      line-height: 0.88; letter-spacing: 0.02em; color: var(--bone);
-      margin-bottom: 0.5rem;
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      line-height: 0.85; letter-spacing: 0.02em; color: var(--bone);
+      margin-bottom: 0.75rem;
     }
     .founder-title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-size: 1.05rem;
-      color: var(--gold); margin-bottom: 2.5rem;
+      color: var(--gold); margin-bottom: 3rem;
     }
     .founder-bio {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; line-height: 1.85; color: var(--dim);
-      margin-bottom: 2.5rem;
+      font-size: 1.15rem; line-height: 1.9; color: var(--dim);
+      margin-bottom: 3rem;
     }
     .founder-bio strong { color: var(--bone); font-weight: 600; }
 
-    .founder-creds { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .cred {
-      font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase;
-      border: 1px solid var(--dim2); padding: 0.3rem 0.7rem; color: var(--dim2);
+    /* Disciplines grid — horizontal rule list */
+    .founder-disciplines {
+      display: flex; flex-direction: column;
+      border-top: 1px solid var(--dim2);
+      margin-bottom: 2.5rem;
+    }
+    .founder-disc-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--dim2);
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
+    }
+    .founder-disc-row.visible {
+      opacity: 1; transform: translateX(0);
+    }
+    .founder-disc-row:hover { border-bottom-color: rgba(184,150,62,0.3); }
+    .founder-disc-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem; letter-spacing: 0.14em; color: var(--bone);
+    }
+    .founder-disc-mark {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold); opacity: 0.4;
     }
 
-    .founder-quote-box {
-      background: rgba(184,150,62,0.04);
-      border: 1px solid rgba(184,150,62,0.15);
-      border-left: 3px solid var(--gold);
-      padding: 3rem;
-      margin-bottom: 3rem;
-    }
-    .founder-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 1.3rem; line-height: 1.7;
-      color: var(--bone); margin-bottom: 1.5rem;
-    }
-    .founder-quote-attr {
-      font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
-    }
-
-    .founder-locations { display: flex; flex-direction: column; gap: 0.75rem; }
+    .founder-locations { display: flex; gap: 2rem; flex-wrap: wrap; }
     .loc {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim2);
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim2);
     }
-    .loc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .loc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* RIGHT COLUMN */
+    .founder-right { display: flex; flex-direction: column; gap: 2rem; padding-top: 1rem; }
+
+    /* Statement — large pull-quote, no box */
+    .founder-statement {
+      margin-bottom: 1.5rem;
+    }
+    .founder-statement-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem; line-height: 0.6;
+      color: var(--gold); opacity: 0.3;
+      margin-bottom: -0.5rem;
+      display: block;
+      user-select: none;
+    }
+    .founder-statement-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      line-height: 1.55;
+      color: var(--bone);
+      letter-spacing: -0.01em;
+    }
+    .founder-statement-attr {
+      display: block;
+      font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-top: 1.5rem;
+    }
+
+    /* Venture count strip */
+    .founder-venture-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--dim2);
+      margin-top: 1rem;
+    }
+    .founder-vs-item {
+      padding: 1.5rem 1.75rem;
+      border-right: 1px solid var(--dim2);
+      transition: background 0.3s;
+    }
+    .founder-vs-item:last-child { border-right: none; }
+    .founder-vs-item:hover { background: rgba(184,150,62,0.03); }
+    .founder-vs-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; line-height: 1; color: var(--bone); letter-spacing: 0.04em;
+    }
+    .founder-vs-label {
+      font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--dim2); margin-top: 0.3rem;
+    }
+
+    /* Dual location line */
+    .founder-geo {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--dim2);
+    }
+    .founder-geo-item {
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim2);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .founder-geo-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--green);
+      animation: pdot 2.5s ease-in-out infinite;
+    }
 
     /* ─── CONTACT CTA ─── */
     .contact-cta {
@@ -1296,10 +1425,19 @@
       .vc-card.pos-0 .vc-desc { display: -webkit-box !important; -webkit-line-clamp: 3; }
       .vc-card.pos-0 .vc-tags { display: flex !important; }
       .vc-accent { height: 2px; }
+      .vc-brand-icon {
+        width: 36px;
+        height: 36px;
+        top: 1rem;
+        right: 1rem;
+      }
       .carousel-controls { gap: 1.5rem; margin-top: 1.5rem; }
 
       /* Founder */
       .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .founder::before { display: none; }
+      .founder-venture-strip { grid-template-columns: repeat(3, 1fr); }
+      .founder-locations { gap: 1rem; }
 
       /* Footer */
       footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
@@ -1331,6 +1469,7 @@
     <div class="nav-right">
       <a href="#ventures" class="nav-link">Ventures</a>
       <a href="#about" class="nav-link">About</a>
+      <a href="#founder" class="nav-link">Founder</a>
       <a href="mailto:ish@interiorbond.com" class="nav-cta">Get In Touch</a>
     </div>
   </nav>
@@ -1363,9 +1502,8 @@
     </div>
 
     <p class="hero-tagline reveal">
-      A creative ecosystem and holding company — venture-building and business development
-      at the intersection of design, media, and cultural movement.
-      <br/><em>Designing the Bond Between Vision and Reality.</em>
+      A creative ecosystem operating at the intersection of<br/>design, media, experiential production, and systems innovation.
+      <br/><em>Not an Agency. An Empire.</em>
     </p>
 
     <div class="hero-stats reveal">
@@ -1381,6 +1519,11 @@
         <div class="stat-num">1</div>
         <div class="stat-label">Vision</div>
       </div>
+    </div>
+
+    <div class="hero-scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
     </div>
 
   </section>
@@ -1407,6 +1550,19 @@
     </div>
   </div>
 
+  <!-- PHILOSOPHY STRIP -->
+  <div class="philosophy-strip">
+    <div class="container">
+      <div class="philosophy-strip-inner">
+        <span class="phil-word">Design</span>
+        <div class="phil-sep"></div>
+        <span class="phil-word">Function</span>
+        <div class="phil-sep"></div>
+        <span class="phil-word">Optimize</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="container">
@@ -1417,11 +1573,11 @@
           <h2 class="about-headline">Not an<br/>Agency.<br/><em>An Empire.</em></h2>
           <div class="about-divider"></div>
           <p class="about-body">
-            The name Interior Bond was born in 2006 — in a boarding school in Ghana, where a teenager sketched the outline of what he called an empire. It started as a clothing brand. But the idea was always bigger: <strong>a company that builds companies.</strong> A home for every vision, every dream, every founder who needed a partner to help them build something real.
+            The name Interior Bond was born in 2006 — sketched in a boarding school notebook in Ghana. The idea was always the same: <strong>a company that builds companies.</strong>
             <br/><br/>
-            Nearly two decades later, that idea is operational. Interior Bond is a <strong>creative ecosystem and holding company</strong> — building, developing, and activating brands, media, and experiences across industries and continents.
+            Nearly two decades later, that idea is operational. Interior Bond is a <strong>creative ecosystem and holding company</strong> — building, developing, and activating brands, media, experiences, and platforms across industries and continents.
             <br/><br/>
-            The philosophy has never changed: <strong>creativity is not just expression.</strong> It is execution, impact, and cultural movement. The time to build has never been better than right now.
+            The philosophy hasn't changed: <strong>creativity is not just expression.</strong> It is execution, systems, and cultural movement.
           </p>
         </div>
 
@@ -1505,9 +1661,8 @@
 
           <!-- Card 1: Namdah -->
           <a class="vc-card" data-idx="1" href="https://namdah.com" target="_blank" rel="noopener">
-            <div class="vc-hero v-namdah" style="background-image:url('hero-namdah.webp')">
-              <img src="namdah-icon.webp" alt="Namdah" class="vc-brand-icon" style="position:absolute;bottom:1.2rem;right:1.2rem;width:48px;height:48px;object-fit:contain;z-index:4;opacity:0.9;filter:brightness(0) invert(1);" />
-            </div>
+            <div class="vc-hero v-namdah" style="background-image:url('hero-namdah.webp')"></div>
+            <img src="namdah-icon.webp" alt="Namdah" class="vc-brand-icon" style="filter:brightness(0) invert(1);" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#D4AE5A,#E8C870)"></div>
             <div class="vc-body">
               <div class="vc-num">02 — namdah.com</div>
@@ -1533,9 +1688,8 @@
 
           <!-- Card 2: UnionIsh -->
           <a class="vc-card" data-idx="2" href="https://unionish.com" target="_blank" rel="noopener">
-            <div class="vc-hero v-union" style="background-image:url('hero-union.png')">
-              <img src="unionish-icon-new.png" alt="UnionIsh" class="vc-brand-icon" style="position:absolute;bottom:1.2rem;right:1.2rem;width:52px;height:52px;object-fit:contain;z-index:4;opacity:0.92;filter:brightness(0) invert(1);" />
-            </div>
+            <div class="vc-hero v-union" style="background-image:url('hero-union.png')"></div>
+            <img src="unionish-icon-new.png" alt="UnionIsh" class="vc-brand-icon" style="filter:brightness(0) invert(1);" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#C45B2A,#E07840)"></div>
             <div class="vc-body">
               <div class="vc-num">03 — unionish.com</div>
@@ -1561,9 +1715,8 @@
 
           <!-- Card 3: Gift for Givers -->
           <a class="vc-card" data-idx="3" href="https://giftforgivers.com" target="_blank" rel="noopener">
-            <div class="vc-hero v-gfg" style="background-image:url('hero-gfg.png')">
-              <img src="gfg-icon.webp" alt="Gift for Givers" class="vc-brand-icon" style="position:absolute;bottom:1.2rem;right:1.2rem;width:52px;height:52px;object-fit:contain;z-index:4;opacity:0.92;" />
-            </div>
+            <div class="vc-hero v-gfg" style="background-image:url('hero-gfg.png')"></div>
+            <img src="gfg-icon.webp" alt="Gift for Givers" class="vc-brand-icon" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#C86428,#E07840)"></div>
             <div class="vc-body">
               <div class="vc-num">04 — giftforgivers.com</div>
@@ -1589,9 +1742,8 @@
 
           <!-- Card 4: Love by Badaria -->
           <a class="vc-card" data-idx="4" href="https://lovebybadaria.com" target="_blank" rel="noopener">
-            <div class="vc-hero v-badaria" style="background-image:url('hero-badaria.webp')">
-              <img src="badaria-icon.png" alt="Love by Badaria" class="vc-brand-icon" style="position:absolute;bottom:1.2rem;right:1.2rem;width:52px;height:52px;object-fit:contain;z-index:4;opacity:0.92;" />
-            </div>
+            <div class="vc-hero v-badaria" style="background-image:url('hero-badaria.webp')"></div>
+            <img src="badaria-icon.png" alt="Love by Badaria" class="vc-brand-icon" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#2D6A2D,#4A9E4A)"></div>
             <div class="vc-body">
               <div class="vc-num">05 — lovebybadaria.com</div>
@@ -1634,29 +1786,70 @@
     <div class="container">
       <div class="founder-inner">
 
+        <!-- LEFT: Identity + Bio + Disciplines -->
         <div class="reveal">
-          <p class="founder-label">Founded By</p>
+          <p class="founder-label">The Architect</p>
           <h2 class="founder-name">General<br/>Ishmael</h2>
-          <p class="founder-title">Founder & Creative Director — Interior Bond</p>
+          <p class="founder-title">Founder &amp; Creative Director — Interior Bond</p>
           <p class="founder-bio">
-            <strong>Ishmael Agyapong</strong> — known as General Ishmael — is a creative director, experiential production specialist, and venture builder. He has spent over a decade delivering large-scale brand environments for the world's most demanding stages — RSAC, Dreamforce, Microsoft, Apple, and Super Bowl activations.
+            Ishmael Agyapong built Interior Bond from a boarding school sketch into a multi-venture creative ecosystem spanning two continents.
             <br/><br/>
-            Beyond production, he has worked alongside startups and founders — helping them launch, shape their identity, and raise capital. He understands what it takes to build from zero: the creative decisions, the operational pressure, and the moment when an idea becomes a real business.
+            His work lives at the intersection of <strong>design, fabrication, media, and systems</strong> — not as separate disciplines but as one continuous practice. He has spent over a decade executing at the highest level: brand environments at Chase Center, Marriott, and Super Bowl activations. Platforms in production. Shows in Accra.
             <br/><br/>
-            <strong>Interior Bond is his life's work</strong> — the empire he sketched in a boarding school notebook in 2006, now being built one venture at a time.
+            <strong>The empire isn't a metaphor. It's the plan.</strong>
           </p>
 
-        </div>
-
-        <div class="reveal">
-          <div class="founder-quote-box">
-            <p class="founder-quote">"Most people wait for permission to build. The ones who change things never asked for it. They just started — and kept going until the world caught up."</p>
-            <p class="founder-quote-attr">— General Ishmael, Founder</p>
+          <div class="founder-disciplines" id="founderDiscs">
+            <div class="founder-disc-row"><span class="founder-disc-name">Creative Direction</span><span class="founder-disc-mark"></span></div>
+            <div class="founder-disc-row"><span class="founder-disc-name">Brand Strategy</span><span class="founder-disc-mark"></span></div>
+            <div class="founder-disc-row"><span class="founder-disc-name">Experiential Production</span><span class="founder-disc-mark"></span></div>
+            <div class="founder-disc-row"><span class="founder-disc-name">Large-Format Fabrication</span><span class="founder-disc-mark"></span></div>
+            <div class="founder-disc-row"><span class="founder-disc-name">Media &amp; Storytelling</span><span class="founder-disc-mark"></span></div>
+            <div class="founder-disc-row"><span class="founder-disc-name">Systems &amp; Operations</span><span class="founder-disc-mark"></span></div>
           </div>
+
           <div class="founder-locations">
             <div class="loc"><div class="loc-dot"></div> Bay Area, California</div>
             <div class="loc"><div class="loc-dot"></div> Accra, Ghana</div>
           </div>
+        </div>
+
+        <!-- RIGHT: Statement + Numbers -->
+        <div class="founder-right reveal">
+
+          <div class="founder-statement">
+            <span class="founder-statement-mark">"</span>
+            <p class="founder-statement-text">Most people wait for permission to build. The ones who change things never asked for it. They just started — and kept going until the world caught up.</p>
+            <span class="founder-statement-attr">— General Ishmael</span>
+          </div>
+
+          <div class="founder-venture-strip">
+            <div class="founder-vs-item">
+              <div class="founder-vs-num">5</div>
+              <div class="founder-vs-label">Active Ventures</div>
+            </div>
+            <div class="founder-vs-item">
+              <div class="founder-vs-num">2</div>
+              <div class="founder-vs-label">Continents</div>
+            </div>
+            <div class="founder-vs-item">
+              <div class="founder-vs-num">1</div>
+              <div class="founder-vs-label">Vision</div>
+            </div>
+          </div>
+
+          <div class="founder-geo">
+            <div class="founder-geo-item">
+              <div class="founder-geo-dot"></div>
+              Bay Area, CA
+            </div>
+            <div style="width:1px;height:12px;background:var(--dim2);flex-shrink:0;"></div>
+            <div class="founder-geo-item">
+              <div class="founder-geo-dot"></div>
+              Accra, Ghana
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -1667,8 +1860,8 @@
   <section class="contact-cta">
     <div class="container">
       <p class="section-tag reveal">Work With Us</p>
-      <h2 class="cta-headline reveal">Let's Build<br/><em>Something Real</em></h2>
-      <p class="cta-sub reveal">Partnerships, ventures, and commissions — we move on what matters.</p>
+      <h2 class="cta-headline reveal">Ready to<br/>Build <em>Something Real?</em></h2>
+      <p class="cta-sub reveal">Partnerships, productions, commissions, and venture conversations.<br/>We move on what matters.</p>
       <a href="mailto:ish@interiorbond.com" class="cta-email reveal">
         <span>ish@interiorbond.com</span>
         <span>↗</span>
@@ -1694,9 +1887,14 @@
   <footer>
     <div class="footer-left">
       <img src="logo-mark-transparent.png" alt="Interior Bond" width="28" height="28" />
-      <p class="footer-copy">© <span id="year"></span> Interior Bond LLC & Interior Bond Group Ltd. All rights reserved. Founded by General Ishmael.</p>
+      <p class="footer-copy">© <span id="year"></span> Interior Bond LLC & Interior Bond Group Ltd. All rights reserved.</p>
     </div>
     <nav class="footer-right" aria-label="Footer">
+      <a href="https://7thcreation.com" target="_blank" rel="noopener">7th Creation</a>
+      <a href="https://namdah.com" target="_blank" rel="noopener">Namdah</a>
+      <a href="https://unionish.com" target="_blank" rel="noopener">UnionIsh</a>
+      <a href="https://giftforgivers.com" target="_blank" rel="noopener">Gift for Givers</a>
+      <a href="https://lovebybadaria.com" target="_blank" rel="noopener">Love by Badaria</a>
       <a href="mailto:ish@interiorbond.com">Contact</a>
     </nav>
   </footer>
@@ -1866,17 +2064,6 @@
             const href = card.getAttribute('href');
             if (href) {
               e.preventDefault();
-              // Track click in GA4
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'venture_click', {
-                  venture_name: card.querySelector('.vc-name') ? card.querySelector('.vc-name').textContent.trim().replace(/\s+/g,' ') : href,
-                  venture_url: href
-                });
-              }
-              // Track in Meta Pixel
-              if (typeof fbq !== 'undefined') {
-                fbq('track', 'ViewContent', { content_name: href });
-              }
               window.open(href, '_blank', 'noopener,noreferrer');
             }
           }
@@ -1950,99 +2137,29 @@
     }, { threshold: 0.08 });
     revealEls.forEach(el => obs.observe(el));
 
+    // ─── Founder discipline rows stagger ───
+    const discRows = document.querySelectorAll('.founder-disc-row');
+    const discObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(discRows).indexOf(e.target);
+          setTimeout(() => e.target.classList.add('visible'), idx * 90);
+          discObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    discRows.forEach(el => discObs.observe(el));
+
     // ─── Email capture handler ───
     window.handleEmailCapture = function(e) {
       e.preventDefault();
       const email = document.getElementById('ecEmail').value.trim();
       const msg = document.getElementById('ecMsg');
       if (!email) return;
-
-      // Track in GA4
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'email_signup', {
-          method: 'email_capture_form',
-          email_domain: email.split('@')[1] || 'unknown'
-        });
-      }
-      // Track in Meta Pixel
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', { content_name: 'email_capture' });
-      }
-
-      // Store locally (localStorage as fallback — replace with your email service endpoint)
-      try {
-        const leads = JSON.parse(localStorage.getItem('ib_leads') || '[]');
-        leads.push({
-          email,
-          ts: new Date().toISOString(),
-          ref: document.referrer || 'direct',
-          ua: navigator.userAgent,
-          tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          lang: navigator.language,
-          screen: screen.width + 'x' + screen.height,
-          path: location.pathname
-        });
-        localStorage.setItem('ib_leads', JSON.stringify(leads));
-      } catch(_) {}
-
-      // Submit to a free Formspree endpoint — replace YOUR_FORM_ID
-      fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          email,
-          referrer: document.referrer || 'direct',
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          language: navigator.language,
-          screen: screen.width + 'x' + screen.height,
-          userAgent: navigator.userAgent,
-          timestamp: new Date().toISOString()
-        })
-      }).then(r => {
-        if (r.ok) {
-          msg.textContent = 'You\'re in. We\'ll be in touch.';
-          msg.className = 'ec-fine success';
-          document.getElementById('ecEmail').value = '';
-        } else {
-          msg.textContent = 'Something went wrong. Try again.';
-          msg.className = 'ec-fine';
-        }
-      }).catch(() => {
-        // Even if fetch fails, we stored locally
-        msg.textContent = 'You\'re in. We\'ll be in touch.';
-        msg.className = 'ec-fine success';
-        document.getElementById('ecEmail').value = '';
-      });
+      msg.textContent = 'You\'re in. We\'ll be in touch.';
+      msg.className = 'ec-fine success';
+      document.getElementById('ecEmail').value = '';
     };
-
-    // ─── Passive visitor data collection ───
-    (function() {
-      const visitorData = {
-        ts: new Date().toISOString(),
-        ref: document.referrer || 'direct',
-        ua: navigator.userAgent,
-        lang: navigator.language,
-        tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        screen: screen.width + 'x' + screen.height,
-        path: location.pathname,
-        utm_source: new URLSearchParams(location.search).get('utm_source') || null,
-        utm_medium: new URLSearchParams(location.search).get('utm_medium') || null,
-        utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || null,
-        utm_content: new URLSearchParams(location.search).get('utm_content') || null
-      };
-      // Store in sessionStorage for the session
-      try { sessionStorage.setItem('ib_visitor', JSON.stringify(visitorData)); } catch(_) {}
-      // Fire GA4 custom event with visitor context
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'visitor_context', {
-          visitor_tz: visitorData.tz,
-          visitor_lang: visitorData.lang,
-          visitor_ref: visitorData.ref,
-          utm_source: visitorData.utm_source,
-          utm_campaign: visitorData.utm_campaign
-        });
-      }
-    })();
 
     // Immediate hero reveal
     setTimeout(() => {
