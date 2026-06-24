@@ -1309,7 +1309,21 @@
       .hero { min-height: 100svh; padding: 7rem 1.5rem 4rem; }
       /* Shrink bg word so it doesn't push horizontal width */
       .hero-bg-word { font-size: clamp(4rem, 20vw, 8rem); }
-      .hero-stats { gap: 2.5rem; }
+      /* Stats bar — fix horizontal overflow on mobile */
+      .hero-stats {
+        width: 100%;
+        max-width: 100%;
+        gap: 0;
+        flex-wrap: nowrap;
+        overflow: hidden;
+      }
+      .stat {
+        flex: 1;
+        padding: 1.2rem 0.5rem;
+        min-width: 0;
+      }
+      .stat-num { font-size: 2rem; }
+      .stat-label { font-size: 0.45rem; letter-spacing: 0.18em; }
 
       /* Container */
       .container { padding: 0 1.5rem; }
