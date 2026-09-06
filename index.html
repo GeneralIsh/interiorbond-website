@@ -482,8 +482,8 @@
     .carousel-stage {
       position: relative;
       width: 100%;
-      height: 560px;
-      perspective: 1400px;
+      height: 590px;
+      perspective: 1500px;
       perspective-origin: 50% 45%;
       display: flex;
       align-items: center;
@@ -499,24 +499,94 @@
     }
 
     .vc-card {
+      --venture-primary: var(--gold);
+      --venture-secondary: var(--teal);
+      --venture-panel: rgba(6,13,31,0.94);
+      --venture-muted: rgba(237,233,224,0.56);
       position: absolute;
       top: 50%; left: 50%;
-      width: 520px;
-      height: 480px;
-      margin-top: -240px;
-      margin-left: -260px;
-      border: 1px solid var(--dim2);
+      width: min(560px, 72vw);
+      height: 500px;
+      margin-top: -250px;
+      margin-left: calc(min(560px, 72vw) / -2);
+      border: 1px solid rgba(237,233,224,0.13);
+      border-radius: 6px;
       overflow: hidden;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 0.75s cubic-bezier(0.4,0,0.2,1),
                   opacity 0.75s ease,
-                  box-shadow 0.4s ease;
+                  filter 0.75s ease,
+                  box-shadow 0.4s ease,
+                  border-color 0.4s ease;
       will-change: transform;
       text-decoration: none;
       color: inherit;
       display: block;
-      background: rgba(6,13,31,0.92);
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--venture-primary) 14%, transparent), transparent 28%),
+        rgba(6,13,31,0.94);
+      isolation: isolate;
+    }
+
+    .vc-card::before {
+      content: attr(data-brand);
+      position: absolute;
+      left: 2.6rem;
+      right: 2.6rem;
+      top: 5.9rem;
+      z-index: 2;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4.5rem, 8vw, 7.2rem);
+      line-height: 0.82;
+      letter-spacing: 0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(237,233,224,0.08);
+      opacity: 0.72;
+      pointer-events: none;
+      transform: translateZ(24px);
+    }
+
+    .vc-card::after {
+      content: '';
+      position: absolute;
+      inset: 1rem;
+      z-index: 12;
+      border: 1px solid rgba(237,233,224,0.08);
+      border-radius: 4px;
+      pointer-events: none;
+      transition: border-color 0.4s ease, opacity 0.4s ease;
+    }
+
+    .vc-card[data-idx="0"] {
+      --venture-primary: #1EC88C;
+      --venture-secondary: #2ABFBF;
+      --venture-panel: rgba(4,18,18,0.94);
+      --venture-muted: rgba(202,236,214,0.6);
+    }
+    .vc-card[data-idx="1"] {
+      --venture-primary: #D4AE5A;
+      --venture-secondary: #FDF4E0;
+      --venture-panel: rgba(20,18,15,0.94);
+      --venture-muted: rgba(253,244,224,0.62);
+    }
+    .vc-card[data-idx="2"] {
+      --venture-primary: #F59E0B;
+      --venture-secondary: #111827;
+      --venture-panel: rgba(14,16,22,0.95);
+      --venture-muted: rgba(255,221,158,0.62);
+    }
+    .vc-card[data-idx="3"] {
+      --venture-primary: #C86428;
+      --venture-secondary: #F7EAD3;
+      --venture-panel: rgba(31,18,10,0.94);
+      --venture-muted: rgba(255,228,204,0.62);
+    }
+    .vc-card[data-idx="4"] {
+      --venture-primary: #D6B86A;
+      --venture-secondary: #1A3A2A;
+      --venture-panel: rgba(10,29,20,0.94);
+      --venture-muted: rgba(238,226,200,0.66);
     }
 
     /* Active card — front and center */
@@ -524,35 +594,40 @@
       transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
       opacity: 1;
       z-index: 10;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(184,150,62,0.08);
+      filter: saturate(1.08) contrast(1.05);
+      box-shadow: 0 42px 110px rgba(0,0,0,0.72), 0 0 70px color-mix(in srgb, var(--venture-primary) 22%, transparent);
       pointer-events: auto;
     }
     /* Adjacent left */
     .vc-card.pos-n1 {
-      transform: translateX(-440px) translateZ(-220px) rotateY(42deg) scale(0.88);
-      opacity: 0.65;
+      transform: translateX(-455px) translateZ(-210px) rotateY(34deg) scale(0.88);
+      opacity: 0.78;
       z-index: 5;
+      filter: saturate(0.82) brightness(0.72);
       pointer-events: auto;
     }
     /* Adjacent right */
     .vc-card.pos-1 {
-      transform: translateX(440px) translateZ(-220px) rotateY(-42deg) scale(0.88);
-      opacity: 0.65;
+      transform: translateX(455px) translateZ(-210px) rotateY(-34deg) scale(0.88);
+      opacity: 0.78;
       z-index: 5;
+      filter: saturate(0.82) brightness(0.72);
       pointer-events: auto;
     }
     /* Far left */
     .vc-card.pos-n2 {
-      transform: translateX(-740px) translateZ(-480px) rotateY(62deg) scale(0.72);
-      opacity: 0.35;
+      transform: translateX(-750px) translateZ(-510px) rotateY(52deg) scale(0.72);
+      opacity: 0.3;
       z-index: 2;
+      filter: saturate(0.5) brightness(0.5);
       pointer-events: auto;
     }
     /* Far right */
     .vc-card.pos-2 {
-      transform: translateX(740px) translateZ(-480px) rotateY(-62deg) scale(0.72);
-      opacity: 0.35;
+      transform: translateX(750px) translateZ(-510px) rotateY(-52deg) scale(0.72);
+      opacity: 0.3;
       z-index: 2;
+      filter: saturate(0.5) brightness(0.5);
       pointer-events: auto;
     }
     /* Hidden / off-stage */
@@ -560,19 +635,21 @@
       transform: translateX(0) translateZ(-800px) scale(0.5);
       opacity: 0;
       z-index: 0;
+      filter: brightness(0.35);
       pointer-events: none;
     }
 
     .vc-card:hover.pos-n1,
-    .vc-card:hover.pos-1 { opacity: 0.85; }
+    .vc-card:hover.pos-1 { opacity: 0.92; filter: saturate(0.92) brightness(0.82); }
     .vc-card:hover.pos-n2,
-    .vc-card:hover.pos-2 { opacity: 0.55; }
+    .vc-card:hover.pos-2 { opacity: 0.5; filter: saturate(0.65) brightness(0.62); }
 
     /* Card inner layout */
     .vc-hero {
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
-      transition: opacity 0.6s;
+      transition: opacity 0.6s, transform 0.75s ease;
+      transform: scale(1.02);
     }
     /* Gradient fallbacks per venture — sourced from each brand's actual identity */
 
@@ -623,10 +700,9 @@
     .vc-hero::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(6,13,31,0.2) 0%,
-        rgba(6,13,31,0.5) 40%,
-        rgba(6,13,31,0.95) 100%);
+      background:
+        linear-gradient(180deg, rgba(6,13,31,0.24) 0%, rgba(6,13,31,0.58) 46%, rgba(6,13,31,0.95) 100%),
+        linear-gradient(90deg, rgba(6,13,31,0.72) 0%, transparent 46%, rgba(6,13,31,0.46) 100%);
     }
 
     /* Per-venture hero radial glow — brand color bleeds */
@@ -637,35 +713,35 @@
                         radial-gradient(circle at 20% 80%, rgba(26,140,140,0.06) 0%, transparent 50%);
       z-index: 1;
     }
-    /* 7th Creation: neon yellow-green glow */
+    /* 7th Creation: teal production glow */
     .vc-hero.v-7th::before {
       background-image:
-        radial-gradient(circle at 65% 25%, rgba(180,220,40,0.12) 0%, transparent 55%),
-        radial-gradient(circle at 30% 75%, rgba(100,160,20,0.07) 0%, transparent 50%);
+        radial-gradient(circle at 65% 25%, rgba(30,200,140,0.16) 0%, transparent 55%),
+        radial-gradient(circle at 30% 75%, rgba(42,191,191,0.1) 0%, transparent 50%);
     }
-    /* Namdah: warm amber/golden glow */
+    /* Namdah: charcoal editorial warmth */
     .vc-hero.v-namdah::before {
       background-image:
-        radial-gradient(circle at 60% 20%, rgba(212,160,23,0.14) 0%, transparent 55%),
-        radial-gradient(circle at 25% 80%, rgba(180,120,10,0.08) 0%, transparent 50%);
+        radial-gradient(circle at 60% 20%, rgba(253,244,224,0.08) 0%, transparent 55%),
+        radial-gradient(circle at 25% 80%, rgba(212,174,90,0.1) 0%, transparent 50%);
     }
     /* UnionIsh: amber orange glow */
     .vc-hero.v-union::before {
       background-image:
-        radial-gradient(circle at 70% 30%, rgba(232,160,48,0.13) 0%, transparent 55%),
-        radial-gradient(circle at 20% 75%, rgba(26,32,48,0.5) 0%, transparent 50%);
+        radial-gradient(circle at 70% 30%, rgba(245,158,11,0.18) 0%, transparent 55%),
+        radial-gradient(circle at 20% 75%, rgba(17,24,39,0.58) 0%, transparent 50%);
     }
-    /* GFG: ember orange glow */
+    /* GFG: warm cream and ember glow */
     .v-gfg::before {
       background-image:
-        radial-gradient(circle at 65% 25%, rgba(212,88,10,0.15) 0%, transparent 55%),
-        radial-gradient(circle at 25% 80%, rgba(180,60,8,0.08) 0%, transparent 50%);
+        radial-gradient(circle at 65% 25%, rgba(247,234,211,0.12) 0%, transparent 55%),
+        radial-gradient(circle at 25% 80%, rgba(200,100,40,0.12) 0%, transparent 50%);
     }
     /* Badaria: forest green + gold glow */
     .v-badaria::before {
       background-image:
-        radial-gradient(circle at 65% 20%, rgba(201,168,76,0.12) 0%, transparent 55%),
-        radial-gradient(circle at 20% 80%, rgba(13,60,30,0.6) 0%, transparent 50%);
+        radial-gradient(circle at 65% 20%, rgba(214,184,106,0.13) 0%, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(26,58,42,0.62) 0%, transparent 50%);
     }
 
     .vc-accent {
@@ -675,58 +751,138 @@
     /* Brand icon — positioned relative to card, above hero gradient and body */
     .vc-brand-icon {
       position: absolute;
-      top: 1.4rem;
-      right: 1.4rem;
-      width: 44px;
-      height: 44px;
+      top: 2rem;
+      right: 2rem;
+      width: 42px;
+      height: 42px;
       object-fit: contain;
-      z-index: 5;
-      opacity: 0.85;
-      transition: opacity 0.3s;
+      z-index: 6;
+      opacity: 0.78;
+      transition: opacity 0.3s, transform 0.3s;
     }
-    .vc-card:hover .vc-brand-icon { opacity: 1; }
+    .vc-card:hover .vc-brand-icon { opacity: 1; transform: translateY(-2px); }
     .vc-card:not(.pos-0) .vc-brand-icon { opacity: 0.5; }
 
     .vc-body {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2.5rem 2.8rem;
-      z-index: 3;
+      position: absolute;
+      inset: 0;
+      padding: 2.1rem 2.6rem 2.3rem;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .vc-cover-head {
+      position: absolute;
+      top: 2rem;
+      left: 2.6rem;
+      right: 5.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      z-index: 6;
+    }
+
+    .vc-view {
+      border: 1px solid color-mix(in srgb, var(--venture-primary) 24%, rgba(237,233,224,0.12));
+      color: var(--venture-muted);
+      font-size: 0.5rem;
+      letter-spacing: 0.22em;
+      line-height: 1;
+      padding: 0.45rem 0.55rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color 0.3s, border-color 0.3s, background 0.3s;
+    }
+
+    .vc-card:hover .vc-view,
+    .vc-card.pos-0 .vc-view {
+      color: var(--bone);
+      border-color: color-mix(in srgb, var(--venture-primary) 55%, rgba(237,233,224,0.24));
+      background: rgba(6,13,31,0.42);
+    }
+
+    .vc-logo-zone {
+      margin-bottom: auto;
+      padding-top: 7.6rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .vc-tags,
+    .vc-desc,
+    .vc-note,
+    .vc-footer {
+      position: relative;
+      z-index: 2;
     }
 
     .vc-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.62rem; letter-spacing: 0.35em; color: var(--gold); opacity: 0.5;
-      margin-bottom: 0.6rem;
+      font-size: 0.62rem; letter-spacing: 0.35em; color: var(--venture-primary); opacity: 0.84;
     }
     .vc-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      line-height: 0.92; letter-spacing: 0.03em; color: var(--bone);
-      margin-bottom: 0.4rem;
+      font-size: clamp(2.5rem, 4vw, 3.35rem);
+      line-height: 0.86; letter-spacing: 0.04em; color: var(--bone);
+      margin-bottom: 0.75rem;
+      max-width: 8ch;
+      text-shadow: 0 14px 35px rgba(0,0,0,0.5);
+    }
+    .vc-wordmark {
+      max-width: min(260px, 65%);
+      filter: drop-shadow(0 16px 28px rgba(0,0,0,0.38));
     }
     .vc-type {
-      font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.4rem;
+      font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--venture-primary); margin-bottom: 1.1rem;
     }
     .vc-desc {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem; line-height: 1.65; color: rgba(237,233,224,0.6);
-      margin-bottom: 1.4rem;
+      font-size: 1.02rem; line-height: 1.62; color: rgba(237,233,224,0.72);
+      max-width: 30rem;
+      margin-bottom: 1.25rem;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+    .vc-note {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.56rem;
+      letter-spacing: 0.17em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: var(--venture-muted);
+    }
+    .vc-note::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      flex: 0 0 32px;
+      background: linear-gradient(90deg, var(--venture-primary), transparent);
+    }
+    .vc-note strong {
+      color: var(--bone);
+      font-weight: 500;
+    }
     .vc-footer {
       display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
     }
     .vc-status {
       display: flex; align-items: center; gap: 0.5rem;
       font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
     }
     .vc-url {
-      font-size: 0.55rem; letter-spacing: 0.15em; color: rgba(237,233,224,0.25);
+      font-size: 0.55rem; letter-spacing: 0.15em; color: rgba(237,233,224,0.36);
       text-transform: lowercase;
+      white-space: nowrap;
     }
     .vs-dot {
       width: 6px; height: 6px; border-radius: 50%;
@@ -736,74 +892,92 @@
     .vs-dot.soon   { background: var(--ember); box-shadow: 0 0 6px var(--ember); animation: pdot 2s infinite; }
     @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
 
-    .vc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.4rem; }
+    .vc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
     .vc-tag {
       font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase;
-      border: 1px solid rgba(237,233,224,0.12); padding: 0.2rem 0.5rem;
-      color: rgba(237,233,224,0.3);
+      border: 1px solid rgba(237,233,224,0.12); padding: 0.28rem 0.55rem;
+      color: rgba(237,233,224,0.38);
+      background: rgba(6,13,31,0.24);
     }
 
     /* Active card shows more content */
     .vc-card.pos-0 .vc-desc { -webkit-line-clamp: 4; }
     .vc-card.pos-0 .vc-hero { opacity: 1; }
-    .vc-card:not(.pos-0) .vc-hero { opacity: 0.7; }
+    .vc-card.pos-0 .vc-hero { transform: scale(1); }
+    .vc-card:not(.pos-0) .vc-hero { opacity: 0.82; }
     .vc-card:not(.pos-0) .vc-desc { display: none; }
     .vc-card:not(.pos-0) .vc-tags { display: none; }
+    .vc-card:not(.pos-0) .vc-note { display: none; }
+    .vc-card:not(.pos-0) .vc-view { opacity: 0; }
+    .vc-card:not(.pos-0) .vc-body {
+      padding-bottom: 2rem;
+      background: linear-gradient(to top, var(--venture-panel), rgba(6,13,31,0.28) 58%, transparent);
+    }
 
     /* Per-venture card body background tint — subtle brand color bleed into card body */
     .vc-card[data-idx="0"] .vc-body {
-      background: linear-gradient(to top, rgba(8,10,8,0.98) 0%, rgba(10,12,8,0.92) 60%, transparent 100%);
+      background:
+        linear-gradient(to top, rgba(3,18,17,0.98) 0%, rgba(5,25,25,0.82) 48%, transparent 100%),
+        linear-gradient(135deg, rgba(30,200,140,0.16), transparent 38%);
     }
     .vc-card[data-idx="1"] .vc-body {
-      background: linear-gradient(to top, rgba(10,8,2,0.98) 0%, rgba(18,14,4,0.92) 60%, transparent 100%);
+      background:
+        linear-gradient(to top, rgba(18,16,14,0.98) 0%, rgba(43,43,56,0.8) 50%, transparent 100%),
+        linear-gradient(135deg, rgba(253,244,224,0.08), transparent 42%);
     }
     .vc-card[data-idx="2"] .vc-body {
-      background: linear-gradient(to top, rgba(8,10,16,0.98) 0%, rgba(12,16,24,0.92) 60%, transparent 100%);
+      background:
+        linear-gradient(to top, rgba(10,13,18,0.98) 0%, rgba(22,24,30,0.84) 48%, transparent 100%),
+        linear-gradient(135deg, rgba(245,158,11,0.16), transparent 40%);
     }
     .vc-card[data-idx="3"] .vc-body {
-      background: linear-gradient(to top, rgba(12,8,4,0.98) 0%, rgba(18,12,6,0.92) 60%, transparent 100%);
+      background:
+        linear-gradient(to top, rgba(32,18,10,0.98) 0%, rgba(50,29,14,0.82) 50%, transparent 100%),
+        linear-gradient(135deg, rgba(247,234,211,0.1), transparent 42%);
     }
     .vc-card[data-idx="4"] .vc-body {
-      background: linear-gradient(to top, rgba(4,10,6,0.98) 0%, rgba(6,16,10,0.92) 60%, transparent 100%);
+      background:
+        linear-gradient(to top, rgba(7,26,17,0.98) 0%, rgba(26,58,42,0.82) 52%, transparent 100%),
+        linear-gradient(135deg, rgba(214,184,106,0.12), transparent 42%);
     }
 
     /* Per-venture vc-type accent color */
-    .vc-card[data-idx="0"] .vc-type { color: rgba(180,220,40,0.8); }
-    .vc-card[data-idx="1"] .vc-type { color: rgba(212,160,23,0.85); }
-    .vc-card[data-idx="2"] .vc-type { color: rgba(232,160,48,0.85); }
-    .vc-card[data-idx="3"] .vc-type { color: rgba(212,88,10,0.85); }
-    .vc-card[data-idx="4"] .vc-type { color: rgba(201,168,76,0.85); }
+    .vc-card .vc-type { color: color-mix(in srgb, var(--venture-primary) 86%, var(--bone)); }
 
     /* Per-venture vc-num color */
-    .vc-card[data-idx="0"] .vc-num { color: rgba(180,220,40,0.5); }
-    .vc-card[data-idx="1"] .vc-num { color: rgba(212,160,23,0.55); }
-    .vc-card[data-idx="2"] .vc-num { color: rgba(232,160,48,0.55); }
-    .vc-card[data-idx="3"] .vc-num { color: rgba(212,88,10,0.55); }
-    .vc-card[data-idx="4"] .vc-num { color: rgba(201,168,76,0.55); }
+    .vc-card .vc-num { color: color-mix(in srgb, var(--venture-primary) 72%, var(--bone)); }
 
     /* Per-venture vc-tag border tint */
-    .vc-card[data-idx="0"] .vc-tag { border-color: rgba(180,220,40,0.15); color: rgba(180,220,40,0.4); }
-    .vc-card[data-idx="1"] .vc-tag { border-color: rgba(212,160,23,0.18); color: rgba(212,160,23,0.45); }
-    .vc-card[data-idx="2"] .vc-tag { border-color: rgba(232,160,48,0.18); color: rgba(232,160,48,0.45); }
-    .vc-card[data-idx="3"] .vc-tag { border-color: rgba(212,88,10,0.2); color: rgba(212,88,10,0.5); }
-    .vc-card[data-idx="4"] .vc-tag { border-color: rgba(201,168,76,0.18); color: rgba(201,168,76,0.45); }
+    .vc-card .vc-tag {
+      border-color: color-mix(in srgb, var(--venture-primary) 28%, transparent);
+      color: color-mix(in srgb, var(--venture-primary) 58%, var(--bone));
+      background: color-mix(in srgb, var(--venture-primary) 9%, rgba(6,13,31,0.24));
+    }
 
     /* Carousel controls */
     .carousel-controls {
       display: flex; align-items: center; justify-content: center;
-      gap: 2rem;
-      margin-top: 3.5rem;
+      gap: 1rem;
+      width: fit-content;
+      margin: 2.8rem auto 0;
+      padding: 0.65rem;
+      border: 1px solid rgba(237,233,224,0.1);
+      border-radius: 999px;
+      background: rgba(6,13,31,0.48);
+      backdrop-filter: blur(16px);
+      position: relative;
     }
-    .carousel-dots { display: flex; gap: 0.6rem; align-items: center; }
+    .carousel-dots { display: flex; gap: 0.55rem; align-items: center; }
     .c-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--dim2); cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
+      width: 26px; height: 2px; border-radius: 999px;
+      background: rgba(237,233,224,0.16); cursor: pointer;
+      transition: background 0.3s, transform 0.3s, width 0.3s;
     }
-    .c-dot.active { background: var(--gold); transform: scale(1.5); }
+    .c-dot.active { background: var(--gold); width: 42px; }
     .c-arrow {
-      background: none; border: 1px solid var(--dim2);
-      color: var(--bone); width: 48px; height: 48px;
+      background: rgba(237,233,224,0.03); border: 1px solid rgba(237,233,224,0.12);
+      border-radius: 50%;
+      color: var(--bone); width: 42px; height: 42px;
       cursor: pointer; font-size: 1.1rem;
       display: flex; align-items: center; justify-content: center;
       transition: border-color 0.3s, color 0.3s, background 0.3s;
@@ -813,7 +987,7 @@
     .carousel-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 0.85rem; letter-spacing: 0.25em; color: var(--dim2);
-      min-width: 80px; text-align: center;
+      min-width: 68px; text-align: center;
     }
     .carousel-label span { color: var(--gold); }
 
@@ -860,7 +1034,12 @@
     .founder-title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-size: 1.05rem;
-      color: var(--gold); margin-bottom: 3rem;
+      color: var(--gold); margin-bottom: 0.65rem;
+    }
+    .founder-alias {
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(237,233,224,0.28);
+      margin-bottom: 3rem;
     }
     .founder-bio {
       font-family: 'Cormorant Garamond', serif;
@@ -924,7 +1103,7 @@
       font-size: clamp(1.4rem, 2.5vw, 1.85rem);
       line-height: 1.55;
       color: var(--bone);
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
     .founder-statement-attr {
       display: block;
@@ -1215,42 +1394,41 @@
     }
 
     /* ─── ACTIVE CARD SHIMMER — per-venture brand color ─── */
-    .vc-card.pos-0::after {
+    .vc-card.pos-0 .vc-body::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -2rem;
       background-size: 200% 200%;
       animation: shimmerSlide 4s ease-in-out infinite;
       pointer-events: none;
-      z-index: 20;
-      border-radius: inherit;
+      z-index: 1;
       /* default gold shimmer */
       background-image: linear-gradient(135deg,
         transparent 0%, rgba(184,150,62,0.06) 40%,
         rgba(184,150,62,0.1) 50%, rgba(184,150,62,0.06) 60%, transparent 100%);
     }
     /* Per-venture shimmer colors */
-    .vc-card[data-idx="0"].pos-0::after {
+    .vc-card[data-idx="0"].pos-0 .vc-body::before {
       background-image: linear-gradient(135deg,
         transparent 0%, rgba(180,220,40,0.05) 40%,
         rgba(180,220,40,0.09) 50%, rgba(180,220,40,0.05) 60%, transparent 100%);
     }
-    .vc-card[data-idx="1"].pos-0::after {
+    .vc-card[data-idx="1"].pos-0 .vc-body::before {
       background-image: linear-gradient(135deg,
         transparent 0%, rgba(212,160,23,0.06) 40%,
         rgba(212,160,23,0.11) 50%, rgba(212,160,23,0.06) 60%, transparent 100%);
     }
-    .vc-card[data-idx="2"].pos-0::after {
+    .vc-card[data-idx="2"].pos-0 .vc-body::before {
       background-image: linear-gradient(135deg,
         transparent 0%, rgba(232,160,48,0.06) 40%,
         rgba(232,160,48,0.11) 50%, rgba(232,160,48,0.06) 60%, transparent 100%);
     }
-    .vc-card[data-idx="3"].pos-0::after {
+    .vc-card[data-idx="3"].pos-0 .vc-body::before {
       background-image: linear-gradient(135deg,
         transparent 0%, rgba(212,88,10,0.06) 40%,
         rgba(212,88,10,0.11) 50%, rgba(212,88,10,0.06) 60%, transparent 100%);
     }
-    .vc-card[data-idx="4"].pos-0::after {
+    .vc-card[data-idx="4"].pos-0 .vc-body::before {
       background-image: linear-gradient(135deg,
         transparent 0%, rgba(201,168,76,0.06) 40%,
         rgba(201,168,76,0.11) 50%, rgba(201,168,76,0.06) 60%, transparent 100%);
@@ -1376,7 +1554,7 @@
 
       /* Stage: fixed height, 3D perspective, clips overflow */
       .carousel-stage {
-        height: 520px;
+        height: 560px;
         perspective: 900px;
         perspective-origin: 50% 45%;
         display: flex;
@@ -1399,10 +1577,10 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 300px;
-        height: 460px;
-        margin-top: -230px;
-        margin-left: -150px;
+        width: min(340px, calc(100vw - 48px));
+        height: 500px;
+        margin-top: -250px;
+        margin-left: calc(min(340px, calc(100vw - 48px)) / -2);
         transform-style: preserve-3d;
         transition: transform 0.65s cubic-bezier(0.4,0,0.2,1),
                     opacity 0.65s ease,
@@ -1410,6 +1588,7 @@
         will-change: transform;
         background: rgba(6,13,31,0.97);
         border: 1px solid rgba(237,233,224,0.08);
+        border-radius: 6px;
         overflow: hidden;
         cursor: pointer;
       }
@@ -1428,16 +1607,16 @@
 
       /* Adjacent left — partially visible */
       .vc-card.pos-n1 {
-        transform: translateX(-200px) translateZ(-160px) rotateY(28deg) scale(0.84) !important;
-        opacity: 0.5 !important;
+        transform: translateX(-220px) translateZ(-170px) rotateY(24deg) scale(0.82) !important;
+        opacity: 0.42 !important;
         z-index: 5;
         pointer-events: auto;
       }
 
       /* Adjacent right — partially visible */
       .vc-card.pos-1 {
-        transform: translateX(200px) translateZ(-160px) rotateY(-28deg) scale(0.84) !important;
-        opacity: 0.5 !important;
+        transform: translateX(220px) translateZ(-170px) rotateY(-24deg) scale(0.82) !important;
+        opacity: 0.42 !important;
         z-index: 5;
         pointer-events: auto;
       }
@@ -1461,23 +1640,93 @@
       .vc-body {
         position: absolute;
         bottom: 0; left: 0; right: 0;
-        padding: 1.6rem 1.4rem 1.8rem;
+        padding: 1.35rem 1.25rem 1.5rem;
         background: linear-gradient(to top, rgba(6,13,31,0.98) 0%, rgba(6,13,31,0.85) 60%, transparent 100%);
       }
+      .vc-card::before {
+        left: 1.25rem;
+        right: 1.25rem;
+        top: 5.2rem;
+        font-size: 4rem;
+        line-height: 0.86;
+      }
+      .vc-card::after { inset: 0.75rem; }
+      .vc-cover-head {
+        top: 1.25rem;
+        left: 1.25rem;
+        right: 4.7rem;
+        align-items: flex-start;
+      }
+      .vc-view {
+        display: none;
+      }
+      .vc-logo-zone {
+        padding-top: 6.2rem;
+      }
       .vc-name { font-size: 1.55rem; }
+      .vc-wordmark {
+        max-width: 210px;
+      }
+      .vc-type {
+        font-size: 0.5rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 0.9rem;
+      }
+      .vc-tags {
+        gap: 0.32rem;
+        margin-bottom: 0.9rem;
+      }
+      .vc-tag {
+        font-size: 0.45rem;
+        padding: 0.24rem 0.42rem;
+      }
+      .vc-desc {
+        font-size: 0.92rem;
+        line-height: 1.52;
+        margin-bottom: 0.95rem;
+      }
+      .vc-note {
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-size: 0.48rem;
+        letter-spacing: 0.13em;
+        margin-bottom: 1rem;
+      }
+      .vc-note::before {
+        width: 22px;
+        flex-basis: 22px;
+        margin-top: 0.45rem;
+      }
+      .vc-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+      .vc-url {
+        white-space: normal;
+      }
       /* Show content only on active card */
       .vc-card:not(.pos-0) .vc-desc { display: none; }
       .vc-card:not(.pos-0) .vc-tags { display: none; }
+      .vc-card:not(.pos-0) .vc-note { display: none; }
       .vc-card.pos-0 .vc-desc { display: -webkit-box !important; -webkit-line-clamp: 3; }
       .vc-card.pos-0 .vc-tags { display: flex !important; }
+      .vc-card.pos-0 .vc-note { display: flex !important; }
       .vc-accent { height: 2px; }
       .vc-brand-icon {
         width: 36px;
         height: 36px;
-        top: 1rem;
-        right: 1rem;
+        top: 1.25rem;
+        right: 1.25rem;
       }
-      .carousel-controls { gap: 1.5rem; margin-top: 1.5rem; }
+      .carousel-controls {
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding: 0.55rem;
+      }
+      .c-dot { width: 18px; }
+      .c-dot.active { width: 30px; }
+      .c-arrow { width: 38px; height: 38px; }
 
       /* Founder */
       .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1673,7 +1922,7 @@
           <p class="section-tag">The Portfolio</p>
           <h2 class="ventures-title">The<br/>Ecosystem</h2>
         </div>
-        <p class="ventures-sub">Five operating ventures across production, media, technology, weddings, and community — each built to lead its category.</p>
+        <p class="ventures-sub">Five operating ventures across production, media, technology, weddings, and community — each with its own market, voice, and product system.</p>
       </div>
 
       <!-- 3D Carousel Stage -->
@@ -1681,20 +1930,26 @@
         <div class="carousel-track" id="carouselTrack">
 
           <!-- Card 0: 7th Creation -->
-          <a class="vc-card" data-idx="0" href="https://7thcreation.com" target="_blank" rel="noopener">
+          <a class="vc-card" data-idx="0" data-brand="7th Creation" href="https://7thcreation.com" target="_blank" rel="noopener">
             <div class="vc-hero v-7th" style="background-image:url('hero-7th.jpg')"></div>
             <div class="vc-accent" style="background:linear-gradient(90deg,#1EC88C,#2ABFBF)"></div>
             <div class="vc-body">
-              <div class="vc-num">01 — 7thcreation.com</div>
-              <div class="vc-name">7th Creation<br/>Studio</div>
-              <div class="vc-type">Production & Fabrication</div>
+              <div class="vc-cover-head">
+                <div class="vc-num">01 — 7thcreation.com</div>
+                <div class="vc-view">View Venture</div>
+              </div>
+              <div class="vc-logo-zone">
+                <div class="vc-name">7th Creation<br/>Studio</div>
+                <div class="vc-type">Production & Fabrication</div>
+              </div>
               <div class="vc-tags">
                 <span class="vc-tag">Large-Format Print</span>
                 <span class="vc-tag">Vehicle Wraps</span>
                 <span class="vc-tag">Trade Show</span>
                 <span class="vc-tag">Installation</span>
               </div>
-              <p class="vc-desc">Oakland's premier large-format print and fabrication studio. From Chase Center to Marriott Hotels — concept to installation.</p>
+              <p class="vc-desc">A large-format graphics and fabrication studio for branded spaces, events, vehicles, retail, and environmental installations.</p>
+              <div class="vc-note"><span><strong>Built for real spaces</strong> — design, produce, install.</span></div>
               <div class="vc-footer">
                 <div class="vc-status">
                   <div class="vs-dot active"></div>
@@ -1706,22 +1961,28 @@
           </a>
 
           <!-- Card 1: Namdah -->
-          <a class="vc-card" data-idx="1" href="https://namdah.com" target="_blank" rel="noopener">
+          <a class="vc-card" data-idx="1" data-brand="Namdah" href="https://namdah.com" target="_blank" rel="noopener">
             <div class="vc-hero v-namdah" style="background-image:url('hero-namdah.webp')"></div>
             <img src="namdah-icon.webp" alt="Namdah" class="vc-brand-icon" style="filter:brightness(0) invert(1);" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#D4AE5A,#E8C870)"></div>
             <div class="vc-body">
-              <div class="vc-num">02 — namdah.com</div>
-              <img src="namdah-logo.png" alt="Namdah Studios" class="vc-wordmark" style="display:block;height:52px;width:auto;margin-bottom:0.4rem;object-fit:contain;object-position:left;filter:brightness(0) invert(1);" />
-              <div class="vc-name" style="display:none;">Namdah<br/>Studios</div>
-              <div class="vc-type">Culture-Led Media</div>
+              <div class="vc-cover-head">
+                <div class="vc-num">02 — namdah.com</div>
+                <div class="vc-view">View Venture</div>
+              </div>
+              <div class="vc-logo-zone">
+                <img src="namdah-logo.png" alt="Namdah Studios" class="vc-wordmark" style="display:block;height:52px;width:auto;margin-bottom:0.4rem;object-fit:contain;object-position:left;filter:brightness(0) invert(1);" />
+                <div class="vc-name" style="display:none;">Namdah<br/>Studios</div>
+                <div class="vc-type">Culture-Led Media</div>
+              </div>
               <div class="vc-tags">
                 <span class="vc-tag">Original IP</span>
                 <span class="vc-tag">Live Music</span>
                 <span class="vc-tag">Storytelling</span>
                 <span class="vc-tag">African Culture</span>
               </div>
-              <p class="vc-desc">A culture-led experiential studio designing cultural experiences and turning them into media systems. 4 original shows. 106K+ views.</p>
+              <p class="vc-desc">A culture-led media studio creating show formats, live experiences, stories, and cultural worlds from Accra for a global audience.</p>
+              <div class="vc-note"><span><strong>Culture-led media</strong> — shows, stories, experiences.</span></div>
               <div class="vc-footer">
                 <div class="vc-status">
                   <div class="vs-dot active"></div>
@@ -1733,22 +1994,28 @@
           </a>
 
           <!-- Card 2: UnionIsh -->
-          <a class="vc-card" data-idx="2" href="https://unionish.com" target="_blank" rel="noopener">
+          <a class="vc-card" data-idx="2" data-brand="UnionIsh" href="https://unionish.com" target="_blank" rel="noopener">
             <div class="vc-hero v-union" style="background-image:url('hero-union.png')"></div>
             <img src="unionish-icon-new.png" alt="UnionIsh" class="vc-brand-icon" style="filter:brightness(0) invert(1);" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#C45B2A,#E07840)"></div>
             <div class="vc-body">
-              <div class="vc-num">03 — unionish.com</div>
-              <img src="unionish-wordmark-new.png" alt="UnionIsh" class="vc-wordmark" style="display:block;height:30px;width:auto;margin-bottom:0.6rem;object-fit:contain;object-position:left;filter:brightness(0) invert(1);" />
-              <div class="vc-name" style="display:none;">UnionIsh<br/>App</div>
-              <div class="vc-type">Union Tech Platform</div>
+              <div class="vc-cover-head">
+                <div class="vc-num">03 — unionish.com</div>
+                <div class="vc-view">View Venture</div>
+              </div>
+              <div class="vc-logo-zone">
+                <img src="unionish-wordmark-new.png" alt="UnionIsh" class="vc-wordmark" style="display:block;height:30px;width:auto;margin-bottom:0.6rem;object-fit:contain;object-position:left;filter:brightness(0) invert(1);" />
+                <div class="vc-name" style="display:none;">UnionIsh<br/>App</div>
+                <div class="vc-type">Union Tech Platform</div>
+              </div>
               <div class="vc-tags">
                 <span class="vc-tag">Union Labor</span>
                 <span class="vc-tag">Hours Tracking</span>
                 <span class="vc-tag">CBA Compliance</span>
                 <span class="vc-tag">Workforce Ops</span>
               </div>
-              <p class="vc-desc">A work hours tracking platform built for union environments — handling pay grades, CBA rules, overtime, and contract compliance.</p>
+              <p class="vc-desc">A union hours and pay tracker for trade workers, apprentices, and crews who need clear shift logs, rate rules, and earnings visibility.</p>
+              <div class="vc-note"><span><strong>Track every hour</strong> — shifts, rates, earnings.</span></div>
               <div class="vc-footer">
                 <div class="vc-status">
                   <div class="vs-dot soon"></div>
@@ -1760,22 +2027,28 @@
           </a>
 
           <!-- Card 3: Gift for Givers -->
-          <a class="vc-card" data-idx="3" href="https://giftforgivers.com" target="_blank" rel="noopener">
+          <a class="vc-card" data-idx="3" data-brand="Gift for Givers" href="https://giftforgivers.com" target="_blank" rel="noopener">
             <div class="vc-hero v-gfg" style="background-image:url('hero-gfg.png')"></div>
             <img src="gfg-icon.webp" alt="Gift for Givers" class="vc-brand-icon" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#C86428,#E07840)"></div>
             <div class="vc-body">
-              <div class="vc-num">04 — giftforgivers.com</div>
-              <img src="gfg-stacked.png" alt="Gift for Givers" class="vc-wordmark" style="display:block;height:52px;width:auto;margin-bottom:0.4rem;object-fit:contain;object-position:left;" />
-              <div class="vc-name" style="display:none;">Gift for<br/>Givers</div>
-              <div class="vc-type">Community Support Platform</div>
+              <div class="vc-cover-head">
+                <div class="vc-num">04 — giftforgivers.com</div>
+                <div class="vc-view">View Venture</div>
+              </div>
+              <div class="vc-logo-zone">
+                <img src="gfg-stacked.png" alt="Gift for Givers" class="vc-wordmark" style="display:block;height:52px;width:auto;margin-bottom:0.4rem;object-fit:contain;object-position:left;" />
+                <div class="vc-name" style="display:none;">Gift for<br/>Givers</div>
+                <div class="vc-type">Community Support Platform</div>
+              </div>
               <div class="vc-tags">
                 <span class="vc-tag">Community</span>
                 <span class="vc-tag">Giving</span>
                 <span class="vc-tag">Cultural Support</span>
                 <span class="vc-tag">Interior Bond</span>
               </div>
-              <p class="vc-desc">A community support platform that celebrates and pours back into the people who help meaningful things grow. Not charity. A system built for givers.</p>
+              <p class="vc-desc">A community support platform for recognizing, organizing, and giving back to the people who help creative work and culture grow.</p>
+              <div class="vc-note"><span><strong>Giving with intention</strong> — community, care, support.</span></div>
               <div class="vc-footer">
                 <div class="vc-status">
                   <div class="vs-dot active"></div>
@@ -1787,22 +2060,28 @@
           </a>
 
           <!-- Card 4: Love by Badaria -->
-          <a class="vc-card" data-idx="4" href="https://lovebybadaria.com" target="_blank" rel="noopener">
+          <a class="vc-card" data-idx="4" data-brand="Love by Badaria" href="https://lovebybadaria.com" target="_blank" rel="noopener">
             <div class="vc-hero v-badaria" style="background-image:url('hero-badaria.webp')"></div>
             <img src="badaria-icon.png" alt="Love by Badaria" class="vc-brand-icon" />
             <div class="vc-accent" style="background:linear-gradient(90deg,#2D6A2D,#4A9E4A)"></div>
             <div class="vc-body">
-              <div class="vc-num">05 — lovebybadaria.com</div>
-              <img src="badaria-wordmark.png" alt="Love by Badaria" class="vc-wordmark" style="display:block;height:36px;width:auto;margin-bottom:0.6rem;object-fit:contain;object-position:left;filter:brightness(0) invert(1);" />
-              <div class="vc-name" style="display:none;">Love by<br/>Badaria</div>
-              <div class="vc-type">Wedding Planning Platform</div>
+              <div class="vc-cover-head">
+                <div class="vc-num">05 — lovebybadaria.com</div>
+                <div class="vc-view">View Venture</div>
+              </div>
+              <div class="vc-logo-zone">
+                <img src="badaria-wordmark.png" alt="Love by Badaria" class="vc-wordmark" style="display:block;height:36px;width:auto;margin-bottom:0.6rem;object-fit:contain;object-position:left;filter:brightness(0) invert(1);" />
+                <div class="vc-name" style="display:none;">Love by<br/>Badaria</div>
+                <div class="vc-type">Wedding Planning Platform</div>
+              </div>
               <div class="vc-tags">
                 <span class="vc-tag">Ghana Weddings</span>
                 <span class="vc-tag">Vendor Directory</span>
                 <span class="vc-tag">Diaspora-Ready</span>
                 <span class="vc-tag">MoMo Gifts</span>
               </div>
-              <p class="vc-desc">Ghana's wedding planning platform — multi-event coordination, verified vendors, guest management, and digital gift funds for couples across Ghana and the diaspora.</p>
+              <p class="vc-desc">A Ghanaian wedding planning platform for couples and planners managing events, guests, budgets, vendors, gifts, and wedding pages.</p>
+              <div class="vc-note"><span><strong>Love, beautifully organised</strong> — planning tools for Ghanaian weddings.</span></div>
               <div class="vc-footer">
                 <div class="vc-status">
                   <div class="vs-dot active"></div>
@@ -1835,14 +2114,15 @@
         <!-- LEFT: Identity + Bio + Disciplines -->
         <div class="reveal">
           <p class="founder-label">The Architect</p>
-          <h2 class="founder-name">General<br/>Ishmael</h2>
+          <h2 class="founder-name">Ishmael<br/>Agyapong</h2>
           <p class="founder-title">Founder &amp; Creative Director — Interior Bond</p>
+          <p class="founder-alias">Known creatively as General Ishmael</p>
           <p class="founder-bio">
-            Ishmael Agyapong built Interior Bond from a boarding school sketch into a multi-venture creative ecosystem spanning two continents.
+            Ishmael Agyapong built Interior Bond from a boarding school sketch into a multi-venture creative ecosystem spanning the Bay Area and Ghana.
             <br/><br/>
-            His work lives at the intersection of <strong>design, fabrication, media, and systems</strong> — not as separate disciplines but as one continuous practice. He has spent over a decade executing at the highest level: brand environments at Chase Center, Marriott, and Super Bowl activations. Platforms in production. Shows in Accra.
+            His work lives at the intersection of <strong>design, fabrication, media, and systems</strong> — not as separate disciplines, but as one continuous practice. He develops brands, builds environments, creates media, and turns ideas into operating ventures with structure behind them.
             <br/><br/>
-            <strong>The empire isn't a metaphor. It's the plan.</strong>
+            <strong>Interior Bond brings those ideas together and gives them structure, direction, and a place to grow.</strong>
           </p>
 
           <div class="founder-disciplines" id="founderDiscs">
@@ -1865,8 +2145,8 @@
 
           <div class="founder-statement">
             <span class="founder-statement-mark">"</span>
-            <p class="founder-statement-text">Most people wait for permission to build. The ones who change things never asked for it. They just started — and kept going until the world caught up.</p>
-            <span class="founder-statement-attr">— General Ishmael</span>
+            <p class="founder-statement-text">Vision only becomes valuable when it can survive contact with reality. Interior Bond is where the idea becomes a system, a product, a space, or a story people can actually use.</p>
+            <span class="founder-statement-attr">— Ishmael Agyapong</span>
           </div>
 
           <div class="founder-venture-strip">
